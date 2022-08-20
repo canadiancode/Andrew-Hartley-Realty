@@ -1,3 +1,20 @@
+
+**KH Aug 19th 2022**
+
+> HTML:
+- added the header section
+- added the video background section
+
+> SCSS:
+- added the styling for the header section
+- added the styling for the video bg section
+
+> JS:
+- added the code mainly into JS so we can re-use it easily.
+- added the variables at the top of each section making it easy to change the text/images/etc
+- added the code for the header section 
+- added the code for the video background section
+
 **KH Aug 18th 2022**
 
 > HTML:
