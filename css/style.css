@@ -15,6 +15,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  height: 4em;
   display: flex;
   justify-content: center;
   padding: 1em;
@@ -36,5 +37,4 @@ body {
   z-index: 3;
   background-color: var(--white-accent-color);
   transition: var(--transition-default);
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
