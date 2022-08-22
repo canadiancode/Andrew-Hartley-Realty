@@ -1,5 +1,5 @@
 :root {
-  --dark-bg-color: #A9A9A9;
+  --dark-bg-color: #1F2022;
   --light-accent-color: white;
   --dark-accent-color: black;
   --transition-default: ease 0.4s;
@@ -39,6 +39,8 @@ h1, h2, h3, h4, p {
     width: 70%;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: var(--dark-bg-color);
+    border-right: solid 1px var(--light-accent-color);
   }
 }
 .desktop-header .desktop-header-left {
@@ -47,6 +49,8 @@ h1, h2, h3, h4, p {
 @media only screen and (max-width: 900px) {
   .desktop-header .desktop-header-left {
     flex-direction: column;
+    padding-bottom: 3em;
+    border-bottom: 2px solid var(--light-accent-color);
   }
 }
 .desktop-header .desktop-header-left img {
@@ -55,10 +59,16 @@ h1, h2, h3, h4, p {
   max-width: 6em;
   max-height: 6em;
 }
+@media only screen and (max-width: 1300px) {
+  .desktop-header .desktop-header-left img {
+    transform: scale(0.8);
+  }
+}
 @media only screen and (max-width: 900px) {
   .desktop-header .desktop-header-left img {
     flex-direction: column;
     margin: 0 auto;
+    transform: scale(1);
   }
 }
 .desktop-header .desktop-header-left h1 {
@@ -66,9 +76,19 @@ h1, h2, h3, h4, p {
   align-self: center;
   color: var(--light-accent-color);
 }
+@media only screen and (max-width: 1300px) {
+  .desktop-header .desktop-header-left h1 {
+    font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .desktop-header .desktop-header-left h1 {
+    font-size: auto;
+  }
+}
 .desktop-header .desktop-header-right {
   display: flex;
-  overflow: hidden;
+  overflow: initial;
 }
 @media only screen and (max-width: 900px) {
   .desktop-header .desktop-header-right {
@@ -98,11 +118,19 @@ h1, h2, h3, h4, p {
   font-weight: bolder;
   color: var(--light-accent-color);
 }
+@media only screen and (max-width: 1300px) {
+  .desktop-header .desktop-header-right .headerMenuItems .navItem {
+    margin-left: 1em;
+    margin-right: 0.5em;
+    font-size: 1em;
+  }
+}
 @media only screen and (max-width: 900px) {
   .desktop-header .desktop-header-right .headerMenuItems .navItem {
     justify-content: center;
     margin: 0 auto;
     margin-top: 2em;
+    font-size: 1.2em;
   }
 }
 
@@ -130,10 +158,11 @@ h1, h2, h3, h4, p {
 
 .crossOut {
   display: none;
+  color: var(--light-accent-color);
 }
 
 .hamburger {
-  color: white;
+  color: var(--light-accent-color);
 }
 
 .AutoPlayVideo-Section {

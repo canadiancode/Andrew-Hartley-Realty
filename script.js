@@ -71,6 +71,14 @@ crossOut.addEventListener('click', function(e) {
     crossOut.style.display = 'none';
     hamburger.style.display = 'block';
 });
+mainContent.addEventListener('click', function(e) {
+    
+    if (window.innerWidth < 900) {
+        headerDiv.style.left = '-90%';
+        crossOut.style.display = 'none';
+        hamburger.style.display = 'block';
+    }
+});
 
 // Resizing adjustment
 function desktopWindowResize() {
@@ -92,8 +100,8 @@ window.onresize = desktopWindowResize;
     // Auto-Play Video Section Variables
     const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/802fd30d328841ae870b603703b9493d.mp4';
     const AutoPlayVideoMainText = 'Andrew Hartley Realty';
-    const AutoPlayVideoSecText = 'Welcome to'
-    const AutoPlayVideoButtonTitle = 'Search All Homes'
+    const AutoPlayVideoSecText = 'Welcome to';
+    const AutoPlayVideoButtonTitle = 'Search All Homes';
 
     // Auto-Play Video Section - video Output
     const AutoPlayVideoSection = document.querySelector('.AutoPlayVideo-Section');

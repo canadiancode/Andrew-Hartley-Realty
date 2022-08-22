@@ -8,7 +8,7 @@
 
 // Custom Properties
 :root {
-    --dark-bg-color: #A9A9A9;
+    --dark-bg-color: #1F2022;
     --light-accent-color: white;
     --dark-accent-color: black;
     --transition-default: ease 0.4s;
@@ -41,7 +41,6 @@ h1, h2, h3, h4, p {
     z-index: 3;
     background-color: var(--transparent-bg-color);
     transition: var(--transition-default);
-    
     @media only screen and (max-width: 900px) {
         top: 0;
         bottom: 0;
@@ -49,29 +48,43 @@ h1, h2, h3, h4, p {
         width: 70%;
         flex-direction: column;
         justify-content: flex-start;
+        background-color: var(--dark-bg-color);
+        border-right: solid 1px var(--light-accent-color);
     }
 
     .desktop-header-left {
         display: flex;
         @media only screen and (max-width: 900px) {
             flex-direction: column;
+            padding-bottom: 3em;
+            border-bottom: 2px solid var(--light-accent-color);
         }
         img {
             @include headerLogoSize;
+            @media only screen and (max-width: 1300px) {
+                transform: scale(0.8);
+            }
             @media only screen and (max-width: 900px) {
                 flex-direction: column;
                 margin: 0 auto;
+                transform: scale(1);
             }
         }
         h1 {
             margin: 0;
             align-self: center;
             color: var(--light-accent-color);
+            @media only screen and (max-width: 1300px) {
+                font-size: 1.5em
+            }
+            @media only screen and (max-width: 950px) {
+                font-size: auto;
+            }
         }
     }
     .desktop-header-right {
         display: flex;
-        overflow: hidden;
+        overflow: initial;
         @media only screen and (max-width: 900px) {
             justify-content: center;
             margin: 0 auto;
@@ -94,10 +107,16 @@ h1, h2, h3, h4, p {
                 font-family: var(--font-Arapey);
                 font-weight: bolder;
                 color: var(--light-accent-color);
+                @media only screen and (max-width: 1300px) {
+                    margin-left: 1em;
+                    margin-right: 0.5em;
+                    font-size: 1em;
+                }
                 @media only screen and (max-width: 900px) {
                     justify-content: center;
                     margin: 0 auto;
                     margin-top: 2em;
+                    font-size: 1.2em;
                 }
             }
         }
@@ -126,10 +145,11 @@ h1, h2, h3, h4, p {
 
 .crossOut {
     display: none;
+    color: var(--light-accent-color);
 }
 
 .hamburger {
-    color: white;
+    color: var(--light-accent-color);
 }
 
 // Main Content
