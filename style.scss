@@ -1,11 +1,3 @@
-// Mixins
-@mixin headerLogoSize {
-    padding: 0em 1em;
-    width: 100%;
-    max-width: 6em;
-    max-height: 6em;
-  };
-
 // Custom Properties
 :root {
     --dark-bg-color: #1F2022;
@@ -22,7 +14,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--light-accent-color);
-    overflow: hidden;
 }
 
 h1, h2, h3, h4, p {
@@ -30,6 +21,13 @@ h1, h2, h3, h4, p {
 }
 
 // Header secton
+@mixin headerLogoSize {
+    padding: 0em 1em;
+    width: 100%;
+    max-width: 6em;
+    max-height: 6em;
+  };
+
 .desktop-header {
     position: fixed;
     top: 0;
@@ -37,10 +35,12 @@ h1, h2, h3, h4, p {
     right: 0;
     display: flex;
     justify-content: space-between;
-    padding: 1em;
     z-index: 3;
     background-color: var(--transparent-bg-color);
     transition: var(--transition-default);
+    width: 98vw;
+    padding-left: 1em;
+    padding-right: 1em;
     @media only screen and (max-width: 900px) {
         top: 0;
         bottom: 0;
@@ -85,6 +85,7 @@ h1, h2, h3, h4, p {
     .desktop-header-right {
         display: flex;
         overflow: initial;
+        padding-right: 1.2em;
         @media only screen and (max-width: 900px) {
             justify-content: center;
             margin: 0 auto;
@@ -146,17 +147,21 @@ h1, h2, h3, h4, p {
 .crossOut {
     display: none;
     color: var(--light-accent-color);
+    transition: var(--transition-default);
 }
 
 .hamburger {
     color: var(--light-accent-color);
+    text-shadow: -2px 2px var(--dark-accent-color);
+    transition: var(--transition-default);
 }
 
 // Main Content
-    // Auto-Play Video Section
+
+// Auto-Play Video Section
 .AutoPlayVideo-Section {
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     justify-content: center;
@@ -188,7 +193,10 @@ h1, h2, h3, h4, p {
             color: var(--light-accent-color);
             font-size: 2.5em;  
             overflow: hidden;        
-            }
+        }
+        .sectionSubText {
+            font-size: 1.5em;
+        }
     }
     .video {
         width: 100vw;
@@ -209,14 +217,86 @@ h1, h2, h3, h4, p {
         border: none;
         color: var(--light-accent-color);
         transition: var(--transition-default);
-        font-weight: bold;
+        font-weight: normal;
         cursor: pointer;
         &:hover {
             background-color: var(--light-accent-color);
             color: black;
+            font-weight: bold;
         }
     }
 }
+
+    // Images and Text Panel Section
+    @mixin numberOfPanels {
+        grid-template-columns: repeat(4, 1fr);
+        @media only screen and (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media only screen and (max-width: 700px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+      };
+
+.ImagesTextPanel-Section {
+    height: 100%;
+    width: 100%;
+    .imageTextPanelHeading {
+        width: 100%;
+        margin: 2em 0 2em 0;
+        text-align: center;
+    }
+    .panelContainer {
+        display: grid;
+        grid-gap: 1em;
+        padding: 1em;
+        max-width: 100em;
+        width: 80%;
+        justify-items: center;
+        margin: 0 auto;
+        @include numberOfPanels;
+        .ImagesTextPanelDivs {
+            height: 25em;
+            position: relative;
+            width: 100%;
+            transition: var(--transition-default);
+            &:hover {
+                filter: brightness(150%);
+                transform: translateY(-0.5em);
+            }
+            &:hover .imageTextPanelText {
+                color: var(--dark-accent-color);
+                text-shadow: 0.01em 0.01em var(--light-accent-color);
+                left: 7%;
+                bottom: 6%;
+                
+            }
+            &:hover .imageTextPanelText::after {
+                width: 100%;
+            }
+            .imageTextPanelText {
+                position: absolute;
+                bottom: 5%;
+                left: 5%;
+                transition: var(--transition-default);
+                color: var(--light-accent-color);
+                &::after {
+                    content: '';
+                    height: 2px;
+                    background-color: var(--light-accent-color);
+                    position: absolute;
+                    margin: 0 auto;
+                    left: 0;
+                    bottom: 0;
+                    width: 0%;
+                    transition: var(--transition-default);
+                }
+            }
+        }
+    }
+  }
+
+// Left Image and Right Text-Section
 
 
 // Footer Section

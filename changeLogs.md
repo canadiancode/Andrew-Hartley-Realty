@@ -1,3 +1,19 @@
+**KH Sept 6th 2022**
+> HTML
+- added the div for the image and text panel
+
+> SCSS:
+- centered and formated the layout (grid)
+- added the hover and slight move up of teh panel from the translate
+
+> JS:
+- set up the HTML elements in JS for panels (easy access when re-building other websites)
+- changed the video background to something I set up using Premier pro. 
+
+> To do:
+- Need to add the link for the panels, and change the cursor to a pointer on hover.
+
+
 
 **KH Aug 19th 2022**
 

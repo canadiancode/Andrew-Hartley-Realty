@@ -98,9 +98,10 @@ window.onresize = desktopWindowResize;
     
 // Auto-Play Video Section
     // Auto-Play Video Section Variables
-    const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/802fd30d328841ae870b603703b9493d.mp4';
-    const AutoPlayVideoMainText = 'Andrew Hartley Realty';
+    const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
     const AutoPlayVideoSecText = 'Welcome to';
+    const AutoPlayVideoMainText = 'Andrew Hartley Realty';
+    const AutoPlayVideoSubText = 'Herbert Banker Realty';
     const AutoPlayVideoButtonTitle = 'Search All Homes';
 
     // Auto-Play Video Section - video Output
@@ -119,15 +120,80 @@ window.onresize = desktopWindowResize;
     const AutoPlayVideoTextDiv =  document.querySelector('.sectionTextDiv');
     const mainTextEl = document.createElement('h1');
     const secTextEl = document.createElement('p');
+    const subTextEl = document.createElement('p');
     mainTextEl.classList.add('sectionText');
     secTextEl.classList.add('sectionText');
+    subTextEl.classList.add('sectionSubText');
     secTextEl.appendChild(document.createTextNode(AutoPlayVideoSecText));
     AutoPlayVideoTextDiv.appendChild(secTextEl);
     mainTextEl.appendChild(document.createTextNode(AutoPlayVideoMainText));
     AutoPlayVideoTextDiv.appendChild(mainTextEl);
+    subTextEl.appendChild(document.createTextNode(AutoPlayVideoSubText));
+    AutoPlayVideoTextDiv.appendChild(subTextEl);
 
     // Call-To-Action button
     const AutoPlayVideoButton = document.createElement('button');
     AutoPlayVideoButton.classList.add('auto-Play-CTA');
-    AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle));
+    AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle.toUpperCase()));
     AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButton);
+
+
+// Images and Text Panel Section
+    // Images and Text Panel Section Variables
+    const imageTextPanelTitle = 'Explore Andrew Hartley Realty';
+    const imageTextPanelURLsAndText = [
+        {
+            text: 'Home Search',
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephen-leonardi-XKIO6ZgCObo-unsplash.jpg?v=1662436369'
+        },
+        {
+            text: 'Exclusive Listings',
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-max-vakhtbovych-7031414.jpg?v=1662436894'
+        },
+        {
+            text: 'Our Blog',
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/roberto-nickson-so3wgJLwDxo-unsplash.jpg?v=1662436470'
+        },
+        {
+            text: 'Work with Andrew',
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-chris-goodwin-32870.jpg?v=1662441099'
+        }
+    ];
+
+    // For the maain heading
+    const imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
+    const imageTextPanelHeading = document.createElement('h1');
+    imageTextPanelHeading.classList.add('imageTextPanelHeading');
+    imageTextPanelContainer.appendChild(imageTextPanelHeading);
+    imageTextPanelHeading.appendChild(document.createTextNode(imageTextPanelTitle.toUpperCase()));
+    imageTextPanelContainer.prepend(imageTextPanelHeading);
+
+    // Image and Text Output
+    const ImagesTextPanelContainer = document.querySelector('.panelContainer');
+
+    // For the panels
+    imageTextPanelURLsAndText.forEach(panel => {
+        // The div container 
+        const imageTextPanelDiv = document.createElement('div');
+        imageTextPanelDiv.classList.add('ImagesTextPanelDivs');
+        ImagesTextPanelContainer.appendChild(imageTextPanelDiv);
+
+        // The text
+        const imageTextPanelEl = document.createElement('h2');
+        imageTextPanelEl.classList.add('imageTextPanelText');
+        const imageTextPanelText = panel.text;
+        imageTextPanelEl.appendChild(document.createTextNode(imageTextPanelText));
+        imageTextPanelDiv.appendChild(imageTextPanelEl);
+
+        // The background image
+        const imageTextPanelBackgroundImageURL = panel.url;
+        console.log(imageTextPanelBackgroundImageURL);
+        imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('"+imageTextPanelBackgroundImageURL+"')";
+        imageTextPanelDiv.style.backgroundSize = 'cover';
+    })
+
+// Images and Text Panel Section
+
+// Left Image Right Text Section
+const leftImageRightTextImageURL = '';
+
