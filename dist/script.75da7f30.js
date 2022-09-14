@@ -278,16 +278,16 @@ imageTextPanelURLsAndText.forEach(function (panel) {
   console.log(imageTextPanelBackgroundImageURL);
   imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('" + imageTextPanelBackgroundImageURL + "')";
   imageTextPanelDiv.style.backgroundSize = 'cover';
-}); // Left Image Right Text --Section
+}); // Right Image Left Text --Section
 // Variables for the Left Image Right Text section
 
 var leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
 var leftImageRightTextImageHeader = "Toronto's Top Real Estate Agent";
 var leftImageRightTextImageSubText = 'The $2 Billon Man';
-var leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market and his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
-var leftImageRightTextImageButtonText = "Learn More"; // Left Image Right Text output
+var leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market with his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
+var leftImageRightTextImageButtonText = 'Learn More'; // Left Image Right Text output
 
-var LeftImageRightTextSection = document.querySelector('.LeftImageRightText-Section');
+var LeftImageRightTextSection = document.querySelector('.RightImageLeftText-Section');
 var LeftImageRightTextSectionLeftSideDiv = document.createElement('div');
 var LeftImageRightTextSectionRightSideDiv = document.createElement('div');
 LeftImageRightTextSectionLeftSideDiv.classList.add('LeftImageRightTextSectionLeftSideDiv');
@@ -306,12 +306,14 @@ LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
 leftImageRightTextImageParagraphTextEl.appendChild(document.createTextNode(leftImageRightTextImageParagraphText));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageParagraphTextEl);
 LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
-leftImageRightTextImageButtonEl.value = leftImageRightTextImageButtonText;
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageBtn');
 LeftImageRightTextSectionRightSideDiv.appendChild(leftImageRightTextImageImageEl);
 leftImageRightTextImageImageEl.src = leftImageRightTextImageURL;
 leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
-console.log(leftImageRightTextImageButtonEl);
+leftImageRightTextImageButtonEl.classList.add('leftImageRightTextImageButton');
+leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -340,7 +342,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56445" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54744" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
