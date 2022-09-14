@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
-// Desktop Header Section - variables
+// Desktop Header --Section - variables 
 var businessNameVar = "Andrew Hartley Realty";
 var logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 var logoAlt = 'Andrew Hartley Realty Logo';
@@ -198,7 +198,7 @@ function desktopWindowResize() {
 }
 
 window.onresize = desktopWindowResize; // Main Container Section
-// Auto-Play Video Section
+// Auto-Play Video --Section
 // Auto-Play Video Section Variables
 
 var AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
@@ -235,7 +235,7 @@ AutoPlayVideoTextDiv.appendChild(subTextEl); // Call-To-Action button
 var AutoPlayVideoButton = document.createElement('button');
 AutoPlayVideoButton.classList.add('auto-Play-CTA');
 AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle.toUpperCase()));
-AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButton); // Images and Text Panel Section
+AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButton); // Images and Text Panel --Section
 // Images and Text Panel Section Variables
 
 var imageTextPanelTitle = 'Explore Andrew Hartley Realty';
@@ -251,7 +251,7 @@ var imageTextPanelURLsAndText = [{
 }, {
   text: 'Work with Andrew',
   url: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-chris-goodwin-32870.jpg?v=1662441099'
-}]; // For the maain heading
+}]; // Output of the Main heading for the image panels
 
 var imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
 var imageTextPanelHeading = document.createElement('h1');
@@ -278,10 +278,40 @@ imageTextPanelURLsAndText.forEach(function (panel) {
   console.log(imageTextPanelBackgroundImageURL);
   imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('" + imageTextPanelBackgroundImageURL + "')";
   imageTextPanelDiv.style.backgroundSize = 'cover';
-}); // Images and Text Panel Section
-// Left Image Right Text Section
+}); // Left Image Right Text --Section
+// Variables for the Left Image Right Text section
 
-var leftImageRightTextImageURL = '';
+var leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
+var leftImageRightTextImageHeader = "Toronto's Top Real Estate Agent";
+var leftImageRightTextImageSubText = 'The $2 Billon Man';
+var leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market and his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
+var leftImageRightTextImageButtonText = "Learn More"; // Left Image Right Text output
+
+var LeftImageRightTextSection = document.querySelector('.LeftImageRightText-Section');
+var LeftImageRightTextSectionLeftSideDiv = document.createElement('div');
+var LeftImageRightTextSectionRightSideDiv = document.createElement('div');
+LeftImageRightTextSectionLeftSideDiv.classList.add('LeftImageRightTextSectionLeftSideDiv');
+LeftImageRightTextSectionRightSideDiv.classList.add('LeftImageRightTextSectionRightSideDiv');
+var leftImageRightTextImageHeaderEl = document.createElement('h1');
+var leftImageRightTextImageSubTextEl = document.createElement('h3');
+var leftImageRightTextImageParagraphTextEl = document.createElement('p');
+var leftImageRightTextImageButtonEl = document.createElement('button');
+var leftImageRightTextImageImageEl = document.createElement('img');
+leftImageRightTextImageHeaderEl.appendChild(document.createTextNode(leftImageRightTextImageHeader));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageHeaderEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionLeftSideDiv);
+leftImageRightTextImageSubTextEl.appendChild(document.createTextNode(leftImageRightTextImageSubText));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageSubTextEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+leftImageRightTextImageParagraphTextEl.appendChild(document.createTextNode(leftImageRightTextImageParagraphText));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageParagraphTextEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+leftImageRightTextImageButtonEl.value = leftImageRightTextImageButtonText;
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+LeftImageRightTextSectionRightSideDiv.appendChild(leftImageRightTextImageImageEl);
+leftImageRightTextImageImageEl.src = leftImageRightTextImageURL;
+leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
+console.log(leftImageRightTextImageButtonEl);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

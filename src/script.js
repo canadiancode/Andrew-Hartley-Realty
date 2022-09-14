@@ -1,4 +1,4 @@
-// Desktop Header Section - variables
+// Desktop Header --Section - variables 
 const businessNameVar = "Andrew Hartley Realty";
 const logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 const logoAlt = 'Andrew Hartley Realty Logo';
@@ -96,7 +96,7 @@ window.onresize = desktopWindowResize;
 
 // Main Container Section
     
-// Auto-Play Video Section
+// Auto-Play Video --Section
     // Auto-Play Video Section Variables
     const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
     const AutoPlayVideoSecText = 'Welcome to';
@@ -138,7 +138,7 @@ window.onresize = desktopWindowResize;
     AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButton);
 
 
-// Images and Text Panel Section
+// Images and Text Panel --Section
     // Images and Text Panel Section Variables
     const imageTextPanelTitle = 'Explore Andrew Hartley Realty';
     const imageTextPanelURLsAndText = [
@@ -160,7 +160,7 @@ window.onresize = desktopWindowResize;
         }
     ];
 
-    // For the maain heading
+    // Output of the Main heading for the image panels
     const imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
     const imageTextPanelHeading = document.createElement('h1');
     imageTextPanelHeading.classList.add('imageTextPanelHeading');
@@ -190,10 +190,46 @@ window.onresize = desktopWindowResize;
         console.log(imageTextPanelBackgroundImageURL);
         imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('"+imageTextPanelBackgroundImageURL+"')";
         imageTextPanelDiv.style.backgroundSize = 'cover';
-    })
+    });
 
-// Images and Text Panel Section
+// Left Image Right Text --Section
+    // Variables for the Left Image Right Text section
+const leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
+const leftImageRightTextImageHeader = `Toronto's Top Real Estate Agent`;
+const leftImageRightTextImageSubText = 'The $2 Billon Man';
+const leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market and his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
+const leftImageRightTextImageButtonText = "Learn More";
 
-// Left Image Right Text Section
-const leftImageRightTextImageURL = '';
+// Left Image Right Text output
+const LeftImageRightTextSection = document.querySelector('.LeftImageRightText-Section');
+const LeftImageRightTextSectionLeftSideDiv = document.createElement('div');
+const LeftImageRightTextSectionRightSideDiv = document.createElement('div');
+LeftImageRightTextSectionLeftSideDiv.classList.add('LeftImageRightTextSectionLeftSideDiv');
+LeftImageRightTextSectionRightSideDiv.classList.add('LeftImageRightTextSectionRightSideDiv');
 
+const leftImageRightTextImageHeaderEl = document.createElement('h1');
+const leftImageRightTextImageSubTextEl = document.createElement('h3');
+const leftImageRightTextImageParagraphTextEl = document.createElement('p');
+const leftImageRightTextImageButtonEl = document.createElement('button');
+const leftImageRightTextImageImageEl = document.createElement('img');
+
+leftImageRightTextImageHeaderEl.appendChild(document.createTextNode(leftImageRightTextImageHeader));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageHeaderEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionLeftSideDiv);
+
+leftImageRightTextImageSubTextEl.appendChild(document.createTextNode(leftImageRightTextImageSubText));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageSubTextEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+
+leftImageRightTextImageParagraphTextEl.appendChild(document.createTextNode(leftImageRightTextImageParagraphText));
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageParagraphTextEl);
+LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+
+leftImageRightTextImageButtonEl.value = leftImageRightTextImageButtonText;
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+
+LeftImageRightTextSectionRightSideDiv.appendChild(leftImageRightTextImageImageEl);
+leftImageRightTextImageImageEl.src = leftImageRightTextImageURL;
+leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
+
+console.log(leftImageRightTextImageButtonEl)
