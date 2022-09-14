@@ -1,0 +1,27 @@
+{
+  "name": "andrew-hartley-realty",
+  "version": "1.0.0",
+  "description": "Realtor Website for Andrew Hartley",
+  "main": "script.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canadiancode/Andrew-Hartley-Realty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canadiancode/Andrew-Hartley-Realty/issues"
+  },
+  "homepage": "https://github.com/canadiancode/Andrew-Hartley-Realty#readme",
+  "devDependencies": {
+    "sass": "^1.54.9"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
