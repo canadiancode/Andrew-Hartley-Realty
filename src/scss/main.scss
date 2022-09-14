@@ -309,6 +309,7 @@ h1, h2, h3, h4, p {
     padding-top: 13em;
     max-width: 63.5em;
     overflow: hidden;
+    margin-top: 4em;
     @media only screen and (max-width: 600px) {
         & {
             grid-template-columns: repeat(1, 1fr);
