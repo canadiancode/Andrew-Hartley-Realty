@@ -1,4 +1,5 @@
-// Desktop Header --Section - variables 
+// Desktop Header --Section
+    // variables 
 const businessNameVar = "Andrew Hartley Realty";
 const logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 const logoAlt = 'Andrew Hartley Realty Logo';
@@ -187,7 +188,6 @@ window.onresize = desktopWindowResize;
 
         // The background image
         const imageTextPanelBackgroundImageURL = panel.url;
-        console.log(imageTextPanelBackgroundImageURL);
         imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('"+imageTextPanelBackgroundImageURL+"')";
         imageTextPanelDiv.style.backgroundSize = 'cover';
     });
@@ -235,3 +235,50 @@ leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRig
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
 
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+
+// Images Zoom On Hover --Section
+    // Variables
+const imageZoomOnHoverURLs = [
+    {
+        URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Oakville.avif?v=1663176288',
+        Text: 'Oakville',
+         href: '#'
+    },
+    {
+         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Burlington.avif?v=1663176288',
+        Text: 'Burlington',
+        href: '#'
+    },
+    {
+        URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Downtown.avif?v=1663176288',
+        Text: 'Downtown Toronto',
+        href: '#'
+    },
+    {
+        URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
+         Text: 'Richmond Hill',
+        href: '#'
+    }
+];
+
+// Images Zoom On Hover Output
+const imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
+for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
+    const imageOnHoverDivs = document.createElement('div');
+    imageOnHoverDivs.classList.add('imageOnHoverDivs');
+    imageOnHoverContainer.appendChild(imageOnHoverDivs);
+}
+
+const imageOnHoverDivs = document.querySelectorAll('.imageOnHoverDivs');
+imageOnHoverDivs.forEach(div => {
+    const imageOnHoverBackgroundDivs = document.createElement('div');
+    imageOnHoverBackgroundDivs.classList.add('imageOnHoverBackgroundDivs');
+    div.appendChild(imageOnHoverBackgroundDivs);
+});
+
+for (let z = 0; z < imageZoomOnHoverURLs.length; z++) {
+    const imageOnHoverBackgroundDiv = document.querySelectorAll('.imageOnHoverBackgroundDivs');
+    const imageZoomOnHoverURL = imageZoomOnHoverURLs[z].URL;
+    imageOnHoverBackgroundDiv[z].style.background = "url('"+imageZoomOnHoverURL+"')";
+    imageOnHoverBackgroundDiv[z].style.backgroundSize = 'cover';
+};

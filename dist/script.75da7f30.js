@@ -118,7 +118,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
-// Desktop Header --Section - variables 
+// Desktop Header --Section
+// variables 
 var businessNameVar = "Andrew Hartley Realty";
 var logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 var logoAlt = 'Andrew Hartley Realty Logo';
@@ -275,7 +276,6 @@ imageTextPanelURLsAndText.forEach(function (panel) {
   imageTextPanelDiv.appendChild(imageTextPanelEl); // The background image
 
   var imageTextPanelBackgroundImageURL = panel.url;
-  console.log(imageTextPanelBackgroundImageURL);
   imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('" + imageTextPanelBackgroundImageURL + "')";
   imageTextPanelDiv.style.backgroundSize = 'cover';
 }); // Right Image Left Text --Section
@@ -313,7 +313,52 @@ leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
 leftImageRightTextImageButtonEl.classList.add('leftImageRightTextImageButton');
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl); // Images Zoom On Hover --Section
+// Variables
+
+var imageZoomOnHoverURLs = [{
+  URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Oakville.avif?v=1663176288',
+  Text: 'Oakville',
+  href: '#'
+}, {
+  URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Burlington.avif?v=1663176288',
+  Text: 'Burlington',
+  href: '#'
+}, {
+  URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Downtown.avif?v=1663176288',
+  Text: 'Downtown Toronto',
+  href: '#'
+}, {
+  URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
+  Text: 'Richmond Hill',
+  href: '#'
+}]; // Images Zoom On Hover Output
+
+var imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
+
+for (var j = 0; j < imageZoomOnHoverURLs.length; j++) {
+  var _imageOnHoverDivs = document.createElement('div');
+
+  _imageOnHoverDivs.classList.add('imageOnHoverDivs');
+
+  imageOnHoverContainer.appendChild(_imageOnHoverDivs);
+}
+
+var imageOnHoverDivs = document.querySelectorAll('.imageOnHoverDivs');
+imageOnHoverDivs.forEach(function (div) {
+  var imageOnHoverBackgroundDivs = document.createElement('div');
+  imageOnHoverBackgroundDivs.classList.add('imageOnHoverBackgroundDivs');
+  div.appendChild(imageOnHoverBackgroundDivs);
+});
+
+for (var z = 0; z < imageZoomOnHoverURLs.length; z++) {
+  var imageOnHoverBackgroundDiv = document.querySelectorAll('.imageOnHoverBackgroundDivs');
+  var imageZoomOnHoverURL = imageZoomOnHoverURLs[z].URL;
+  imageOnHoverBackgroundDiv[z].style.background = "url('" + imageZoomOnHoverURL + "')";
+  imageOnHoverBackgroundDiv[z].style.backgroundSize = 'cover';
+}
+
+;
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -342,7 +387,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54744" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49917" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
