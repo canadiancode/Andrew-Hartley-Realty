@@ -139,11 +139,15 @@ var headerMenuList = [{
 // left side
 
 var desktopHeaderLeft = document.querySelector('.desktop-header-left');
+var headerLogoLink = document.createElement('a');
 var headerLogo = document.createElement('img');
+headerLogoLink.classList.add('headerLogoLink');
 headerLogo.classList.add('businessName');
+headerLogoLink.href = headerMenuList[0].href;
 headerLogo.src = logoSrc;
 headerLogo.alt = logoAlt;
-desktopHeaderLeft.appendChild(headerLogo);
+headerLogoLink.appendChild(headerLogo);
+desktopHeaderLeft.appendChild(headerLogoLink);
 var HeaderBusinessName = document.createElement('h1');
 HeaderBusinessName.classList.add('businessLogo');
 HeaderBusinessName.appendChild(document.createTextNode(businessNameVar));
@@ -154,8 +158,10 @@ var headerMenuItems = document.createElement('ul');
 headerMenuItems.classList.add('headerMenuItems');
 desktopHeaderRight.appendChild(headerMenuItems);
 headerMenuList.forEach(function (menuItem) {
+  // adding the menu items
   var link = document.createElement('a');
   link.classList.add('navItem');
+  link.href = menuItem.href;
   var linkName = menuItem.title;
   headerMenuItems.appendChild(link);
   link.appendChild(document.createTextNode(linkName.toUpperCase()));
@@ -198,7 +204,42 @@ function desktopWindowResize() {
   }
 }
 
-window.onresize = desktopWindowResize; // Main Container Section
+window.onresize = desktopWindowResize; // Scroll affect for header
+// The debounce function receives our function as a parameter
+
+var debounce = function debounce(fn) {
+  // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+  var frame; // The debounce function returns a new function that can receive a variable number of arguments
+
+  return function () {
+    for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+      params[_key] = arguments[_key];
+    }
+
+    // If the frame variable has been defined, clear it now, and queue for next frame
+    if (frame) {
+      cancelAnimationFrame(frame);
+    } // Queue our function call for the next frame
+
+
+    frame = requestAnimationFrame(function () {
+      // Call our function and pass any params we received
+      fn.apply(void 0, params);
+    });
+  };
+}; // Reads out the scroll position and stores it in the data attribute so we can use it in our stylesheets
+
+
+var storeScroll = function storeScroll() {
+  document.documentElement.dataset.scroll = window.scrollY;
+}; // Listen for new scroll events, here we debounce our `storeScroll` function
+
+
+document.addEventListener('scroll', debounce(storeScroll), {
+  passive: true
+}); // Update scroll position for first time
+
+storeScroll(); // Main Container Section
 // Auto-Play Video --Section
 // Auto-Play Video Section Variables
 
@@ -338,7 +379,46 @@ leftImageRightTextImageButtonURLs.classList.add('leftImageRightTextImageButtonUR
 leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
 leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs); // Images Zoom On Hover --Section
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs); // Only Text Panel Testimonial --Section
+// variables
+
+var onlyTextpanelTestimonialHeader = 'Latest Press and Media';
+var onlyTextpanelTestimonialVariables = [{
+  text: 'So good!',
+  subText: '- Evolve Realty Magazine'
+}, {
+  text: 'Just wow.',
+  subText: '- GTA Reporter'
+}, {
+  text: 'Best Agent Ever!',
+  subText: 'Rich Realty News'
+}]; // Only Text Panel Testimonial output for heading
+
+var onlyTextpanelTestimonialContainer = document.querySelector('.OnlyTextPanelTestimonial-Section');
+var onlyTextpanelTestimonialHeaderEl = document.createElement('h1');
+onlyTextpanelTestimonialHeaderEl.classList.add('onlyTextpanelTestimonialHeaderEl');
+onlyTextpanelTestimonialHeaderEl.appendChild(document.createTextNode(onlyTextpanelTestimonialHeader.toUpperCase()));
+onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialHeaderEl); // Only Text Panel Testimonial output for testimonial
+
+var onlyTextpanelTestimonialDivEl = document.createElement('div');
+onlyTextpanelTestimonialDivEl.classList.add('onlyTextpanelTestimonialDivEl');
+onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialDivEl);
+onlyTextpanelTestimonialVariables.forEach(function (testimonial) {
+  // variable creation
+  var onlyTextpanelTestimonialtextEl = document.createElement('p');
+  onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
+  var onlyTextpanelTestimonialSignatureEl = document.createElement('p');
+  onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialSignatureEl');
+  var onlyTextpanelTestimonialtext = testimonial.text;
+  var onlyTextpanelTestimonialSignature = testimonial.subText; // add the text into the elements
+
+  onlyTextpanelTestimonialtextEl.appendChild(document.createTextNode(onlyTextpanelTestimonialtext));
+  onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature)); // adding the text into the DOM
+
+  onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextEl);
+  onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialSignatureEl);
+  console.log(onlyTextpanelTestimonialtextEl);
+}); // Images Zoom On Hover --Section
 // Variables
 
 var imageZoomOnHoverButtonTexts = 'Learn More';

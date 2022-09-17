@@ -26,11 +26,15 @@ const headerMenuList = [
     // left side
 const desktopHeaderLeft = document.querySelector('.desktop-header-left');
 
+const headerLogoLink = document.createElement('a');
 const headerLogo = document.createElement('img');
+headerLogoLink.classList.add('headerLogoLink');
 headerLogo.classList.add('businessName');
+headerLogoLink.href = headerMenuList[0].href;
 headerLogo.src = logoSrc;
 headerLogo.alt = logoAlt;
-desktopHeaderLeft.appendChild(headerLogo);
+headerLogoLink.appendChild(headerLogo);
+desktopHeaderLeft.appendChild(headerLogoLink);
 
 const HeaderBusinessName = document.createElement('h1');
 HeaderBusinessName.classList.add('businessLogo');
@@ -45,8 +49,10 @@ headerMenuItems.classList.add('headerMenuItems');
 desktopHeaderRight.appendChild(headerMenuItems);
 
 headerMenuList.forEach(menuItem => {
+    // adding the menu items
     const link = document.createElement('a');
     link.classList.add('navItem');
+    link.href = menuItem.href;
     const linkName = menuItem.title;
     headerMenuItems.appendChild(link);
     link.appendChild(document.createTextNode(linkName.toUpperCase()));
@@ -94,6 +100,40 @@ function desktopWindowResize() {
     }
 }
 window.onresize = desktopWindowResize;
+
+// Scroll affect for header
+  // The debounce function receives our function as a parameter
+  const debounce = (fn) => {
+    // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+    let frame;
+
+    // The debounce function returns a new function that can receive a variable number of arguments
+    return (...params) => {
+      
+      // If the frame variable has been defined, clear it now, and queue for next frame
+      if (frame) { 
+        cancelAnimationFrame(frame);
+      }
+  
+      // Queue our function call for the next frame
+      frame = requestAnimationFrame(() => {
+        
+        // Call our function and pass any params we received
+        fn(...params);
+      });
+    } 
+  };
+  
+  // Reads out the scroll position and stores it in the data attribute so we can use it in our stylesheets
+  const storeScroll = () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+  }
+  
+  // Listen for new scroll events, here we debounce our `storeScroll` function
+  document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+  
+  // Update scroll position for first time
+  storeScroll();
 
 // Main Container Section
     
@@ -264,6 +304,60 @@ leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
 leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs);
+
+// Only Text Panel Testimonial --Section
+// variables
+const onlyTextpanelTestimonialHeader = 'Latest Press and Media';
+const onlyTextpanelTestimonialVariables = [
+    {
+        text: 'So good!',
+        subText: '- Evolve Realty Magazine'
+    },
+    {
+        text: 'Just wow.',
+        subText: '- GTA Reporter'
+    },
+    {
+        text: 'Best Agent Ever!',
+        subText: 'Rich Realty News'
+    }
+];
+
+// Only Text Panel Testimonial output for heading
+const onlyTextpanelTestimonialContainer = document.querySelector('.OnlyTextPanelTestimonial-Section');
+const onlyTextpanelTestimonialHeaderEl = document.createElement('h1');
+onlyTextpanelTestimonialHeaderEl.classList.add('onlyTextpanelTestimonialHeaderEl');
+onlyTextpanelTestimonialHeaderEl.appendChild(document.createTextNode(onlyTextpanelTestimonialHeader.toUpperCase()));
+onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialHeaderEl);
+
+// Only Text Panel Testimonial output for testimonial
+const onlyTextpanelTestimonialDivEl = document.createElement('div');
+onlyTextpanelTestimonialDivEl.classList.add('onlyTextpanelTestimonialDivEl');
+onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialDivEl);
+
+onlyTextpanelTestimonialVariables.forEach(testimonial => {
+    // variable creation
+    const onlyTextpanelTestimonialtextEl = document.createElement('p');
+    onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
+    const onlyTextpanelTestimonialSignatureEl = document.createElement('p');
+    onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialSignatureEl');
+
+    const onlyTextpanelTestimonialtext = testimonial.text;
+    const onlyTextpanelTestimonialSignature = testimonial.subText;
+
+    // add the text into the elements
+    onlyTextpanelTestimonialtextEl.appendChild(document.createTextNode(onlyTextpanelTestimonialtext));
+    onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature));
+
+    // adding the text into the DOM
+    
+    onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextEl);
+    onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialSignatureEl);
+
+    console.log(onlyTextpanelTestimonialtextEl);
+
+});
+
 
 // Images Zoom On Hover --Section
     // Variables

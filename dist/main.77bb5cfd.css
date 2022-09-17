@@ -54,6 +54,12 @@ h1, h2, h3, h4, p {
     border-bottom: 2px solid var(--light-accent-color);
   }
 }
+.desktop-header .desktop-header-left .headerLogoLink {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
 .desktop-header .desktop-header-left img {
   padding: 0em 1em;
   width: 100%;
@@ -119,6 +125,13 @@ h1, h2, h3, h4, p {
   font-family: var(--font-Helvetica);
   font-weight: bolder;
   color: var(--light-accent-color);
+  text-decoration: none;
+}
+.desktop-header .desktop-header-right .headerMenuItems .navItem:hover {
+  text-decoration: underline;
+}
+.desktop-header .desktop-header-right .headerMenuItems .navItem:focus {
+  text-decoration: underline;
 }
 @media only screen and (max-width: 1300px) {
   .desktop-header .desktop-header-right .headerMenuItems .navItem {
@@ -168,6 +181,10 @@ h1, h2, h3, h4, p {
   color: var(--light-accent-color);
   text-shadow: -2px 2px var(--dark-accent-color);
   transition: var(--transition-default);
+}
+
+html:not([data-scroll="0"]) .desktop-header {
+  background-color: var(--dark-accent-color);
 }
 
 .AutoPlayVideo-Section {
@@ -335,8 +352,9 @@ h1, h2, h3, h4, p {
   }
 }
 .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
+  border: solid 1px var(--light-accent-color);
   border-radius: 5px;
-  margin: 20% -10% 20% 10%;
+  margin: 20% -5% 20% 10%;
   padding: 20% 10% 10% 10%;
   box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
   background-color: var(--dark-bg-color);
@@ -375,6 +393,32 @@ h1, h2, h3, h4, p {
   padding: 0%;
   box-shadow: 2px 2px 13px 2px var(--dark-accent-color);
   border-radius: 5px;
+}
+
+.OnlyTextPanelTestimonial-Section {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1em;
+}
+.OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialHeaderEl {
+  color: var(--dark-accent-color);
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  font-weight: lighter;
+  padding-bottom: 1.7em;
+}
+.OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialDivEl {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--dark-accent-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  min-height: 14em;
 }
 
 .ImagesZoomOnHover-Section {
