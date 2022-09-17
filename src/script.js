@@ -310,16 +310,16 @@ LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonUR
 const onlyTextpanelTestimonialHeader = 'Latest Press and Media';
 const onlyTextpanelTestimonialVariables = [
     {
-        text: 'So good!',
+        text: '"Andrew is Herbert Banker’s No. 1 agent, and his expertise has propelled him to the top of luxury real estate agents in the Toronto area."',
         subText: '- Evolve Realty Magazine'
     },
     {
-        text: 'Just wow.',
+        text: '"Andrew Hartley inducted into the Toronto Real Estate Society Hall of Fame."',
         subText: '- GTA Reporter'
     },
     {
-        text: 'Best Agent Ever!',
-        subText: 'Rich Realty News'
+        text: '"In his more-than-two-decade career, Hartley has racked up more than $2 billion in sales, consistently ranking as one of the top agents in the country."',
+        subText: '- Rich Realty News'
     }
 ];
 
@@ -337,6 +337,8 @@ onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialDivEl);
 
 onlyTextpanelTestimonialVariables.forEach(testimonial => {
     // variable creation
+    const onlyTextpanelTestimonialtextDiv = document.createElement('div');
+    onlyTextpanelTestimonialtextDiv.classList.add('onlyTextpanelTestimonialtextDiv');
     const onlyTextpanelTestimonialtextEl = document.createElement('p');
     onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
     const onlyTextpanelTestimonialSignatureEl = document.createElement('p');
@@ -348,13 +350,12 @@ onlyTextpanelTestimonialVariables.forEach(testimonial => {
     // add the text into the elements
     onlyTextpanelTestimonialtextEl.appendChild(document.createTextNode(onlyTextpanelTestimonialtext));
     onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature));
+    onlyTextpanelTestimonialtextEl.style.fontStyle = 'italic';
+    onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialtextEl);
+    onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialSignatureEl);
 
     // adding the text into the DOM
-    
-    onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextEl);
-    onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialSignatureEl);
-
-    console.log(onlyTextpanelTestimonialtextEl);
+    onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextDiv);
 
 });
 
@@ -436,3 +437,87 @@ for (let z = 0; z < imageZoomOnHoverURLs.length; z++) {
     imageZoomOnHoverButtonEl[z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
 };
 
+// Contact CTA and Email Submission --Section
+// variables on the left side
+const contactCTAemailformBackgroundURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephan-bechert-yFV39g6AZ5o-unsplash.jpg?v=1663451952';
+const contactCTAemailformLeftSide = [
+    {
+        heading: 'Work with Us',
+        subTextOne: 'We offer the highest level of expertise, service, and integrity.',
+        subTextTwo: 'Andrew Hartley Realty is the leading real estate agent in the Toronto area, and has helped hundreds of buyers find luxury homes and mansions, resulting in almost $2 Billion of closed residential real estate transactions in the last 20 years.',
+        buttonText: 'Learn More',
+        buttonURL: '#'
+    },
+];
+// variables on the right side 
+const contactCTAemailformRightSide = [
+    {
+        heading: 'Newsletter',
+        paragraphText: 'For exclusive news and market updates, sign up for our newsletter below.',
+        formPlaceholder: 'Your email',
+        buttonText: 'Submit',
+        buttonURL: '#'
+    },
+];
+
+// Contact CTA and Email Submission Output to the DOM
+// creating the divs for the two sides
+const ContactCTAEmailSubmissionContainer = document.querySelector('.ContactCTAEmailSubmission-Section');
+const ContactCTAEmailSubmissionLeftDiv = document.createElement('div');
+ContactCTAEmailSubmissionLeftDiv.classList.add('ContactCTAEmailSubmissionLeftDiv');
+const ContactCTAEmailSubmissionRightDiv = document.createElement('div');
+ContactCTAEmailSubmissionRightDiv.classList.add('ContactCTAEmailSubmissionRightDiv');
+ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionLeftDiv);
+ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionRightDiv);
+
+// The background image on both sides
+ContactCTAEmailSubmissionContainer.style.background = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('"+contactCTAemailformBackgroundURL+"')";
+ContactCTAEmailSubmissionContainer.style.backgroundSize = 'cover';
+ContactCTAEmailSubmissionContainer.style.backgroundPosition = 'center';
+
+// Adding the text inside the left div
+contactCTAemailformLeftSide.forEach(element => {
+    const ContactCTAEmailformLeftSideHeadingEl = document.createElement('h3');
+    const ContactCTAEmailformLeftSideSubOneEl = document.createElement('p');
+    const ContactCTAEmailformLeftSideSubTwoEl = document.createElement('p');
+    ContactCTAEmailformLeftSideHeadingEl.appendChild(document.createTextNode(element.heading));
+    ContactCTAEmailformLeftSideSubOneEl.appendChild(document.createTextNode(element.subTextOne));
+    ContactCTAEmailformLeftSideSubTwoEl.appendChild(document.createTextNode(element.subTextTwo));
+    ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideHeadingEl);
+    ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubOneEl);
+    ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubTwoEl);
+
+    // Call To Action button for the left side 
+    const ContactCTAEmailformLeftSideCTAbuttonURL = document.createElement('a');
+    ContactCTAEmailformLeftSideCTAbuttonURL.classList.add('ContactCTAEmailformLeftSideCTAbuttonURL');
+    ContactCTAEmailformLeftSideCTAbuttonURL.href = element.buttonURL;
+    const ContactCTAEmailformLeftSideCTAbutton = document.createElement('button');
+    ContactCTAEmailformLeftSideCTAbutton.classList.add('ContactCTAEmailformLeftSideCTAbutton');
+    ContactCTAEmailformLeftSideCTAbuttonURL.appendChild(ContactCTAEmailformLeftSideCTAbutton);
+    ContactCTAEmailformLeftSideCTAbutton.appendChild(document.createTextNode(element.buttonText));
+    ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideCTAbuttonURL);
+    });
+
+// Right side text and form addition
+contactCTAemailformRightSide.forEach(element => {
+    const contactCTAemailformRightSideHeading = document.createElement('h1');
+    const contactCTAemailformRightSideParagraph = document.createElement('p');
+    const contactCTAemailformRightSideSubmissionForm = document.createElement('form');
+    const contactCTAemailformRightSideSubmissionFormInput = document.createElement('input');
+    const contactCTAemailformRightSideSubmitBtnURL = document.createElement('a');
+    const contactCTAemailformRightSideSubmitBtn = document.createElement('button');
+
+    contactCTAemailformRightSideHeading.appendChild(document.createTextNode(element.heading));
+    ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideHeading);
+    contactCTAemailformRightSideParagraph.appendChild(document.createTextNode(element.paragraphText));
+    ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideParagraph);
+    contactCTAemailformRightSideSubmissionForm.appendChild(contactCTAemailformRightSideSubmissionFormInput);
+    contactCTAemailformRightSideSubmissionForm.placeholder = element.formPlaceholder;
+    ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmissionForm);
+    contactCTAemailformRightSideSubmitBtnURL.appendChild(contactCTAemailformRightSideSubmitBtn);
+    contactCTAemailformRightSideSubmitBtnURL.href = element.buttonURL;
+    contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
+    ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
+
+});
+// Footer --Section

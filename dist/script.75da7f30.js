@@ -384,14 +384,14 @@ LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonUR
 
 var onlyTextpanelTestimonialHeader = 'Latest Press and Media';
 var onlyTextpanelTestimonialVariables = [{
-  text: 'So good!',
+  text: '"Andrew is Herbert Banker’s No. 1 agent, and his expertise has propelled him to the top of luxury real estate agents in the Toronto area."',
   subText: '- Evolve Realty Magazine'
 }, {
-  text: 'Just wow.',
+  text: '"Andrew Hartley inducted into the Toronto Real Estate Society Hall of Fame."',
   subText: '- GTA Reporter'
 }, {
-  text: 'Best Agent Ever!',
-  subText: 'Rich Realty News'
+  text: '"In his more-than-two-decade career, Hartley has racked up more than $2 billion in sales, consistently ranking as one of the top agents in the country."',
+  subText: '- Rich Realty News'
 }]; // Only Text Panel Testimonial output for heading
 
 var onlyTextpanelTestimonialContainer = document.querySelector('.OnlyTextPanelTestimonial-Section');
@@ -405,6 +405,8 @@ onlyTextpanelTestimonialDivEl.classList.add('onlyTextpanelTestimonialDivEl');
 onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialDivEl);
 onlyTextpanelTestimonialVariables.forEach(function (testimonial) {
   // variable creation
+  var onlyTextpanelTestimonialtextDiv = document.createElement('div');
+  onlyTextpanelTestimonialtextDiv.classList.add('onlyTextpanelTestimonialtextDiv');
   var onlyTextpanelTestimonialtextEl = document.createElement('p');
   onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
   var onlyTextpanelTestimonialSignatureEl = document.createElement('p');
@@ -413,11 +415,12 @@ onlyTextpanelTestimonialVariables.forEach(function (testimonial) {
   var onlyTextpanelTestimonialSignature = testimonial.subText; // add the text into the elements
 
   onlyTextpanelTestimonialtextEl.appendChild(document.createTextNode(onlyTextpanelTestimonialtext));
-  onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature)); // adding the text into the DOM
+  onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature));
+  onlyTextpanelTestimonialtextEl.style.fontStyle = 'italic';
+  onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialtextEl);
+  onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialSignatureEl); // adding the text into the DOM
 
-  onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextEl);
-  onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialSignatureEl);
-  console.log(onlyTextpanelTestimonialtextEl);
+  onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextDiv);
 }); // Images Zoom On Hover --Section
 // Variables
 
@@ -488,7 +491,79 @@ for (var z = 0; z < imageZoomOnHoverURLs.length; z++) {
   imageZoomOnHoverButtonEl[z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
 }
 
-;
+; // Contact CTA and Email Submission --Section
+// variables on the left side
+
+var contactCTAemailformBackgroundURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephan-bechert-yFV39g6AZ5o-unsplash.jpg?v=1663451952';
+var contactCTAemailformLeftSide = [{
+  heading: 'Work with Us',
+  subTextOne: 'We offer the highest level of expertise, service, and integrity.',
+  subTextTwo: 'Andrew Hartley Realty is the leading real estate agent in the Toronto area, and has helped hundreds of buyers find luxury homes and mansions, resulting in almost $2 Billion of closed residential real estate transactions in the last 20 years.',
+  buttonText: 'Learn More',
+  buttonURL: '#'
+}]; // variables on the right side 
+
+var contactCTAemailformRightSide = [{
+  heading: 'Newsletter',
+  paragraphText: 'For exclusive news and market updates, sign up for our newsletter below.',
+  formPlaceholder: 'Your email',
+  buttonText: 'Submit',
+  buttonURL: '#'
+}]; // Contact CTA and Email Submission Output to the DOM
+// creating the divs for the two sides
+
+var ContactCTAEmailSubmissionContainer = document.querySelector('.ContactCTAEmailSubmission-Section');
+var ContactCTAEmailSubmissionLeftDiv = document.createElement('div');
+ContactCTAEmailSubmissionLeftDiv.classList.add('ContactCTAEmailSubmissionLeftDiv');
+var ContactCTAEmailSubmissionRightDiv = document.createElement('div');
+ContactCTAEmailSubmissionRightDiv.classList.add('ContactCTAEmailSubmissionRightDiv');
+ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionLeftDiv);
+ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionRightDiv); // The background image on both sides
+
+ContactCTAEmailSubmissionContainer.style.background = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('" + contactCTAemailformBackgroundURL + "')";
+ContactCTAEmailSubmissionContainer.style.backgroundSize = 'cover';
+ContactCTAEmailSubmissionContainer.style.backgroundPosition = 'center'; // Adding the text inside the left div
+
+contactCTAemailformLeftSide.forEach(function (element) {
+  var ContactCTAEmailformLeftSideHeadingEl = document.createElement('h3');
+  var ContactCTAEmailformLeftSideSubOneEl = document.createElement('p');
+  var ContactCTAEmailformLeftSideSubTwoEl = document.createElement('p');
+  ContactCTAEmailformLeftSideHeadingEl.appendChild(document.createTextNode(element.heading));
+  ContactCTAEmailformLeftSideSubOneEl.appendChild(document.createTextNode(element.subTextOne));
+  ContactCTAEmailformLeftSideSubTwoEl.appendChild(document.createTextNode(element.subTextTwo));
+  ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideHeadingEl);
+  ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubOneEl);
+  ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubTwoEl); // Call To Action button for the left side 
+
+  var ContactCTAEmailformLeftSideCTAbuttonURL = document.createElement('a');
+  ContactCTAEmailformLeftSideCTAbuttonURL.classList.add('ContactCTAEmailformLeftSideCTAbuttonURL');
+  ContactCTAEmailformLeftSideCTAbuttonURL.href = element.buttonURL;
+  var ContactCTAEmailformLeftSideCTAbutton = document.createElement('button');
+  ContactCTAEmailformLeftSideCTAbutton.classList.add('ContactCTAEmailformLeftSideCTAbutton');
+  ContactCTAEmailformLeftSideCTAbuttonURL.appendChild(ContactCTAEmailformLeftSideCTAbutton);
+  ContactCTAEmailformLeftSideCTAbutton.appendChild(document.createTextNode(element.buttonText));
+  ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideCTAbuttonURL);
+}); // Right side text and form addition
+
+contactCTAemailformRightSide.forEach(function (element) {
+  var contactCTAemailformRightSideHeading = document.createElement('h1');
+  var contactCTAemailformRightSideParagraph = document.createElement('p');
+  var contactCTAemailformRightSideSubmissionForm = document.createElement('form');
+  var contactCTAemailformRightSideSubmissionFormInput = document.createElement('input');
+  var contactCTAemailformRightSideSubmitBtnURL = document.createElement('a');
+  var contactCTAemailformRightSideSubmitBtn = document.createElement('button');
+  contactCTAemailformRightSideHeading.appendChild(document.createTextNode(element.heading));
+  ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideHeading);
+  contactCTAemailformRightSideParagraph.appendChild(document.createTextNode(element.paragraphText));
+  ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideParagraph);
+  contactCTAemailformRightSideSubmissionForm.appendChild(contactCTAemailformRightSideSubmissionFormInput);
+  contactCTAemailformRightSideSubmissionForm.placeholder = element.formPlaceholder;
+  ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmissionForm);
+  contactCTAemailformRightSideSubmitBtnURL.appendChild(contactCTAemailformRightSideSubmitBtn);
+  contactCTAemailformRightSideSubmitBtnURL.href = element.buttonURL;
+  contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
+  ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
+}); // Footer --Section
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -517,7 +592,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49418" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
