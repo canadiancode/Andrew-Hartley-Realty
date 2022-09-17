@@ -512,7 +512,7 @@ contactCTAemailformRightSide.forEach(element => {
     contactCTAemailformRightSideParagraph.appendChild(document.createTextNode(element.paragraphText));
     ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideParagraph);
     contactCTAemailformRightSideSubmissionForm.appendChild(contactCTAemailformRightSideSubmissionFormInput);
-    contactCTAemailformRightSideSubmissionForm.placeholder = element.formPlaceholder;
+    contactCTAemailformRightSideSubmissionFormInput.placeholder = element.formPlaceholder;
     ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmissionForm);
     contactCTAemailformRightSideSubmitBtnURL.appendChild(contactCTAemailformRightSideSubmitBtn);
     contactCTAemailformRightSideSubmitBtnURL.href = element.buttonURL;

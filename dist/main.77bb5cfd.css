@@ -427,7 +427,7 @@ html:not([data-scroll="0"]) .businessLogo {
   box-shadow: inset 0px 0px 0px 0px var(--dark-accent-color);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv:hover .onlyTextpanelTestimonialtextEl {
-  font-size: x-large;
+  font-size: 1.27em;
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialtextEl {
   transition: var(--transition-default);
@@ -566,7 +566,7 @@ html:not([data-scroll="0"]) .businessLogo {
   border-left: none;
   z-index: 2;
   width: 100%;
-  height: 80%;
+  height: auto;
   text-align: center;
   padding-top: 2em;
   display: flex;
@@ -576,6 +576,7 @@ html:not([data-scroll="0"]) .businessLogo {
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h3 {
   width: 100%;
   text-align: center;
+  font-size: 1.5em;
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv p {
   max-width: 50%;
@@ -587,6 +588,7 @@ html:not([data-scroll="0"]) .businessLogo {
   width: 190px;
   height: 40px;
   margin: 0 auto;
+  margin-bottom: 3em;
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv button {
   margin-bottom: 3em;
@@ -620,6 +622,7 @@ html:not([data-scroll="0"]) .businessLogo {
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
   margin: 1em 6em 2em 0em;
+  line-height: 200%;
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form {
   margin-bottom: 2em;
