@@ -104,6 +104,7 @@ window.onresize = desktopWindowResize;
     const AutoPlayVideoMainText = 'Andrew Hartley Realty';
     const AutoPlayVideoSubText = 'Herbert Banker Realty';
     const AutoPlayVideoButtonTitle = 'Search All Homes';
+    const AutoPlayVideoButtonURL = '#';
 
     // Auto-Play Video Section - video Output
     const AutoPlayVideoSection = document.querySelector('.AutoPlayVideo-Section');
@@ -132,11 +133,17 @@ window.onresize = desktopWindowResize;
     subTextEl.appendChild(document.createTextNode(AutoPlayVideoSubText));
     AutoPlayVideoTextDiv.appendChild(subTextEl);
 
+
     // Call-To-Action button
     const AutoPlayVideoButton = document.createElement('button');
     AutoPlayVideoButton.classList.add('auto-Play-CTA');
+    const AutoPlayVideoButttonLink = document.createElement('a');
+    AutoPlayVideoButttonLink.classList.add('AutoPlayVideoButttonLink');
+    AutoPlayVideoButttonLink.href = AutoPlayVideoButtonURL;
     AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle.toUpperCase()));
-    AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButton);
+    AutoPlayVideoButttonLink.appendChild(AutoPlayVideoButton);
+    AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButttonLink);
+    
 
 
 // Images and Text Panel --Section
@@ -145,19 +152,23 @@ window.onresize = desktopWindowResize;
     const imageTextPanelURLsAndText = [
         {
             text: 'Home Search',
-            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephen-leonardi-XKIO6ZgCObo-unsplash.jpg?v=1662436369'
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephen-leonardi-XKIO6ZgCObo-unsplash.jpg?v=1662436369',
+            href: '#'
         },
         {
             text: 'Exclusive Listings',
-            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-max-vakhtbovych-7031414.jpg?v=1662436894'
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-max-vakhtbovych-7031414.jpg?v=1662436894',
+            href: '#'
         },
         {
             text: 'Our Blog',
-            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/roberto-nickson-so3wgJLwDxo-unsplash.jpg?v=1662436470'
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/roberto-nickson-so3wgJLwDxo-unsplash.jpg?v=1662436470',
+            href: '#'
         },
         {
             text: 'Work with Andrew',
-            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-chris-goodwin-32870.jpg?v=1662441099'
+            url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-chris-goodwin-32870.jpg?v=1662441099',
+            href: '#'
         }
     ];
 
@@ -174,10 +185,19 @@ window.onresize = desktopWindowResize;
 
     // For the panels
     imageTextPanelURLsAndText.forEach(panel => {
+        
+        // The link for the panel
+        const imageTextPanelLink = document.createElement('a');
+        imageTextPanelLink.classList.add('imageTextPanelLink');
+        const imageTextPanelLinkURL = panel.href;
+        imageTextPanelLink.href = imageTextPanelLinkURL;
+        ImagesTextPanelContainer.appendChild(imageTextPanelLink);
+        
         // The div container 
         const imageTextPanelDiv = document.createElement('div');
         imageTextPanelDiv.classList.add('ImagesTextPanelDivs');
-        ImagesTextPanelContainer.appendChild(imageTextPanelDiv);
+        imageTextPanelLink.appendChild(imageTextPanelDiv);
+
 
         // The text
         const imageTextPanelEl = document.createElement('h2');
@@ -193,12 +213,13 @@ window.onresize = desktopWindowResize;
     });
 
 // Right Image Left Text --Section
-    // Variables for the Left Image Right Text section
+    // Variables for the Right Image Left Text section
 const leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
 const leftImageRightTextImageHeader = `Toronto's Top Real Estate Agent`;
 const leftImageRightTextImageSubText = 'The $2 Billon Man';
 const leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market with his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
 const leftImageRightTextImageButtonText = 'Learn More';
+const leftImageRightTextImageButtonURL = '#';
 
 // Left Image Right Text output
 const LeftImageRightTextSection = document.querySelector('.RightImageLeftText-Section');
@@ -207,45 +228,54 @@ const LeftImageRightTextSectionRightSideDiv = document.createElement('div');
 LeftImageRightTextSectionLeftSideDiv.classList.add('LeftImageRightTextSectionLeftSideDiv');
 LeftImageRightTextSectionRightSideDiv.classList.add('LeftImageRightTextSectionRightSideDiv');
 
+// Element creation
 const leftImageRightTextImageHeaderEl = document.createElement('h1');
 const leftImageRightTextImageSubTextEl = document.createElement('h3');
 const leftImageRightTextImageParagraphTextEl = document.createElement('p');
+const leftImageRightTextImageButtonURLs = document.createElement('a');
 const leftImageRightTextImageButtonEl = document.createElement('button');
 const leftImageRightTextImageImageEl = document.createElement('img');
 
+// section header
 leftImageRightTextImageHeaderEl.appendChild(document.createTextNode(leftImageRightTextImageHeader));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageHeaderEl);
 LeftImageRightTextSection.appendChild(LeftImageRightTextSectionLeftSideDiv);
 
+// section sub text
 leftImageRightTextImageSubTextEl.appendChild(document.createTextNode(leftImageRightTextImageSubText));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageSubTextEl);
 LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
 
+// section paragraph 
 leftImageRightTextImageParagraphTextEl.appendChild(document.createTextNode(leftImageRightTextImageParagraphText));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageParagraphTextEl);
 LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
 
+// section right side image
 leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageBtn');
 LeftImageRightTextSectionRightSideDiv.appendChild(leftImageRightTextImageImageEl);
 leftImageRightTextImageImageEl.src = leftImageRightTextImageURL;
 leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
 
+// section button CTA
 leftImageRightTextImageButtonEl.classList.add('leftImageRightTextImageButton');
+leftImageRightTextImageButtonURLs.classList.add('leftImageRightTextImageButtonURLs');
+leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
+leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
-
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonEl);
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs);
 
 // Images Zoom On Hover --Section
     // Variables
+const imageZoomOnHoverButtonTexts = 'Learn More';
 const imageZoomOnHoverURLs = [
     {
-        URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Oakville.avif?v=1663176288',
+        URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/andre-francois-mckenzie-08uIUe2a9XY-unsplash.jpg?v=1663304584',
         Text: 'Oakville',
          href: '#'
     },
     {
-         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Burlington.avif?v=1663176288',
+         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/cole-ankney-ZdJ6eIKN3G0-unsplash.jpg?v=1663304852',
         Text: 'Burlington',
         href: '#'
     },
@@ -256,12 +286,12 @@ const imageZoomOnHoverURLs = [
     },
     {
         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
-         Text: 'Richmond Hill',
+        Text: 'Richmond Hill',
         href: '#'
     }
 ];
 
-// Images Zoom On Hover Output
+// Images Zoom On Hover Output for background
 const imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
 for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
     const imageOnHoverDivs = document.createElement('div');
@@ -271,14 +301,44 @@ for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
 
 const imageOnHoverDivs = document.querySelectorAll('.imageOnHoverDivs');
 imageOnHoverDivs.forEach(div => {
+    // Add background image div
     const imageOnHoverBackgroundDivs = document.createElement('div');
     imageOnHoverBackgroundDivs.classList.add('imageOnHoverBackgroundDivs');
     div.appendChild(imageOnHoverBackgroundDivs);
+
+    // Creating the text element
+    const imageOnHoverMainText = document.createElement('h3');
+    imageOnHoverMainText.classList.add('imageOnHoverMainText');
+    div.appendChild(imageOnHoverMainText);
+
+    // Creating the button element
+    const imageOnHoverButtonLinks = document.createElement('a');
+    const imageOnHoverButton = document.createElement('button');
+    imageOnHoverButtonLinks.classList.add('imageOnHoverButtonLinks');
+    imageOnHoverButton.classList.add('imageOnHoverButton');
+    div.appendChild(imageOnHoverButtonLinks);
+    imageOnHoverButtonLinks.appendChild(imageOnHoverButton);
 });
 
 for (let z = 0; z < imageZoomOnHoverURLs.length; z++) {
+    // adding the background URL 
     const imageOnHoverBackgroundDiv = document.querySelectorAll('.imageOnHoverBackgroundDivs');
     const imageZoomOnHoverURL = imageZoomOnHoverURLs[z].URL;
     imageOnHoverBackgroundDiv[z].style.background = "url('"+imageZoomOnHoverURL+"')";
     imageOnHoverBackgroundDiv[z].style.backgroundSize = 'cover';
+
+    // Adding the text to the text element
+    const imageZoomOnHoverText = imageZoomOnHoverURLs[z].Text;
+    const imageOnZoomHoverTextEl = document.querySelectorAll('.imageOnHoverMainText');
+    imageOnZoomHoverTextEl[z].appendChild(document.createTextNode(imageZoomOnHoverText));
+
+    // adding the link to the button
+    const imageOnHoverButtonLinks = document.querySelectorAll('.imageOnHoverButtonLinks');
+    imageOnHoverButtonLinks[z].href = imageZoomOnHoverURLs[z].href;
+
+    // Adding the text to the button element
+    const imageZoomOnHoverButtonText = imageZoomOnHoverButtonTexts;
+    const imageZoomOnHoverButtonEl = document.querySelectorAll('.imageOnHoverButton');
+    imageZoomOnHoverButtonEl[z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
 };
+

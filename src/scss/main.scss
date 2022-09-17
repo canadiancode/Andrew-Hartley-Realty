@@ -197,6 +197,11 @@ h1, h2, h3, h4, p {
         .sectionSubText {
             font-size: 1.5em;
         }
+        .AutoPlayVideoButttonLink {
+            width: 190px;
+            height: 40px;
+            margin: 0 auto;
+        }
     }
     .video {
         width: 100vw;
@@ -212,7 +217,7 @@ h1, h2, h3, h4, p {
         width: 190px;
         height: 40px;
         margin: 0 auto;
-        margin-top: 3em;
+        transform: translateY(1.5em);
         outline: white solid 2px;
         background-color: rgba(255, 255, 255,0.1);
         border: none;
@@ -257,6 +262,10 @@ h1, h2, h3, h4, p {
         justify-items: center;
         margin: 0 auto;
         @include numberOfPanels;
+        .imageTextPanelLink {
+            height: 100%;
+            width: 100%;
+        }
         .ImagesTextPanelDivs {
             height: 25em;
             position: relative;
@@ -272,7 +281,6 @@ h1, h2, h3, h4, p {
                 text-shadow: 0.00001em 0.00001em 0.5em var(--light-accent-color);
                 left: 7%;
                 bottom: 6%;
-                
             }
             &:hover .imageTextPanelText::after {
                 width: 100%;
@@ -367,15 +375,80 @@ h1, h2, h3, h4, p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0em;
+    @media only screen and (max-width: 1000px) {
+        & {
+            grid-template-columns: repeat(1, 1fr);
+            height: 150vh;
+        }
+    }
     .imageOnHoverDivs {
         width: 100%;
         height: 100%;
         overflow: hidden;
+        position: relative;
+        transition: var(--transition-default);
+        &:hover .imageOnHoverBackgroundDivs {
+            transform: scale(1.15);
+            filter: brightness(50%);
+        }
+        &:hover .imageOnHoverButton {
+            transform: translateY(0em);
+            opacity: 100;
+        }
         .imageOnHoverBackgroundDivs {
             height: 100%;
             width: 100%;
             background-size: auto;
             background-position: bottom;
+            transition: var(--transition-default);
+        }
+        .imageOnHoverMainText {
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            left: 0%;
+            margin: 0 auto;
+            font-size: 2em;
+            text-align: center;
+            width: 35%;
+            color: var(--light-accent-color);
+            background-color:rgba(0, 0, 0, 0.6);
+            @media only screen and (max-width: 1000px) {
+                & {
+                    width: 40%;
+                    min-width: 220px;
+                }
+            }
+        }
+        .imageOnHoverButton {
+            position: absolute;
+            top: 60%;
+            right: 0%;
+            left: 0%;
+            margin: 0 auto;
+            font-size: 1em;
+            text-align: center;
+            width: 190px;
+            height: 40px;
+            margin-top: 3em;
+            outline: white solid 2px;
+            background-color: var(--dark-accent-color);
+            border: 1px solid var(--light-accent-color);
+            color: var(--light-accent-color);
+            font-weight: normal;
+            cursor: pointer;
+            transition: var(--transition-default);
+            transform: translateY(42px);
+            opacity: 0;
+            &:hover {
+                background-color: var(--light-accent-color);
+                color: var(--dark-accent-color);
+                font-weight: bold;
+            }
+        }
+        .imageOnHoverButtonLinks {
+            height: 100%;
+            width: 100%;
         }
     }
 }
