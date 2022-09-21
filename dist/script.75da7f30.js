@@ -118,8 +118,34 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
-// Desktop Header --Section
-// variables 
+// Variables for Social Platforms
+var headerMobileSocialIcons = [//Facebook
+{
+  Link: 'https://www.facebook.com/',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-facebook-48.png?v=1663738855'
+}, //Instagram
+{
+  Link: 'https://www.instagram.com',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-instagram-48.png?v=1663738854' //Twitter
+
+}, {
+  Link: 'https://twitter.com/',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-twitter-squared-48.png?v=1663738814'
+}, // LinkedIn
+{
+  Link: 'https://linkedin.com',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-linkedin-48.png?v=1663738620'
+}, // YouTube
+{
+  Link: 'https://www.youtube.com/',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-youtube-48.png?v=1663738815'
+}, // TikTok
+{
+  Link: 'https://www.tiktok.com/',
+  Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-tiktok-48.png?v=1663738843'
+}]; // Desktop Header --Section
+// variables for header
+
 var businessNameVar = "Andrew Hartley Realty";
 var logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 var logoAlt = 'Andrew Hartley Realty Logo';
@@ -171,13 +197,31 @@ var hamburgerIcon = document.querySelector('.mobileHeaderTab');
 var headerDiv = document.querySelector('.desktop-header');
 var crossOut = document.querySelector('.crossOut');
 var hamburger = document.querySelector('.hamburger');
-var mainContent = document.querySelector('.mainContainer'); // Open menu
+var mainContent = document.querySelector('.mainContainer'); // the social media icons and links 
+
+var headerSocialLinks = document.createElement('div');
+headerSocialLinks.classList.add('headerSocialLinks');
+headerDiv.appendChild(headerSocialLinks); // for the icon output onto the DOM
+
+console.log(headerMobileSocialIcons.length);
+headerMobileSocialIcons.forEach(function (social) {
+  var headerMobileSocialIconLink = document.createElement('a');
+  headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
+  var headerMobileSocialIconImgEl = document.createElement('img');
+  headerMobileSocialIconImgEl.classList.add('headerMobileSocialIconImgEl');
+  headerMobileSocialIconLink.appendChild(headerMobileSocialIconImgEl);
+  var headerMobileSocialIconImgSrc = social.Link;
+  headerMobileSocialIconImgEl.src = social.Icon;
+  headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
+  headerSocialLinks.appendChild(headerMobileSocialIconLink);
+  console.log(headerMobileSocialIconImgSrc);
+}); // Open menu function
 
 hamburger.addEventListener('click', function (e) {
   headerDiv.style.left = '0%';
   hamburger.style.display = 'none';
   crossOut.style.display = 'block';
-}); // close menu
+}); // close menu function
 
 crossOut.addEventListener('click', function (e) {
   headerDiv.style.left = '-90%';
@@ -410,7 +454,7 @@ onlyTextpanelTestimonialVariables.forEach(function (testimonial) {
   var onlyTextpanelTestimonialtextEl = document.createElement('p');
   onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
   var onlyTextpanelTestimonialSignatureEl = document.createElement('p');
-  onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialSignatureEl');
+  onlyTextpanelTestimonialSignatureEl.classList.add('onlyTextpanelTestimonialSignatureEl');
   var onlyTextpanelTestimonialtext = testimonial.text;
   var onlyTextpanelTestimonialSignature = testimonial.subText; // add the text into the elements
 
@@ -592,7 +636,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55243" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59120" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

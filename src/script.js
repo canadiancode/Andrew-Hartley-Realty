@@ -1,5 +1,39 @@
+// Variables for Social Platforms
+const headerMobileSocialIcons = [
+    //Facebook
+    {
+        Link: 'https://www.facebook.com/',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-facebook-48.png?v=1663738855'
+    },    
+    //Instagram
+    {
+        Link: 'https://www.instagram.com',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-instagram-48.png?v=1663738854'
+    //Twitter
+    },
+    {
+        Link: 'https://twitter.com/',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-twitter-squared-48.png?v=1663738814'
+    },    
+    // LinkedIn
+    {
+        Link: 'https://linkedin.com',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-linkedin-48.png?v=1663738620'
+    },    
+    // YouTube
+    {
+        Link: 'https://www.youtube.com/',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-youtube-48.png?v=1663738815'
+    },
+    // TikTok
+    {
+        Link: 'https://www.tiktok.com/',
+        Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-tiktok-48.png?v=1663738843'
+    }    
+];
+
 // Desktop Header --Section
-    // variables 
+    // variables for header
 const businessNameVar = "Andrew Hartley Realty";
 const logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
 const logoAlt = 'Andrew Hartley Realty Logo';
@@ -65,14 +99,43 @@ const crossOut = document.querySelector('.crossOut');
 const hamburger = document.querySelector('.hamburger');
 const mainContent = document.querySelector('.mainContainer');
 
-    // Open menu
+// the social media icons and links 
+const headerSocialLinks = document.createElement('div');
+headerSocialLinks.classList.add('headerSocialLinks');
+headerDiv.appendChild(headerSocialLinks);
+    // for the icon output onto the DOM
+
+    console.log(headerMobileSocialIcons.length);
+
+    headerMobileSocialIcons.forEach(social => {
+        const  headerMobileSocialIconLink = document.createElement('a');
+        headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
+        const headerMobileSocialIconImgEl = document.createElement('img');
+        headerMobileSocialIconImgEl.classList.add('headerMobileSocialIconImgEl');
+        headerMobileSocialIconLink.appendChild(headerMobileSocialIconImgEl);
+        const headerMobileSocialIconImgSrc = social.Link;
+        headerMobileSocialIconImgEl.src = social.Icon;
+        headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
+        headerSocialLinks.appendChild(headerMobileSocialIconLink);
+
+        console.log(headerMobileSocialIconImgSrc);
+
+    });
+
+
+
+
+
+
+
+// Open menu function
 hamburger.addEventListener('click', function(e) {
     headerDiv.style.left = '0%';
     hamburger.style.display = 'none';
     crossOut.style.display = 'block';
 });
 
-    // close menu
+// close menu function
 crossOut.addEventListener('click', function(e) {
     headerDiv.style.left = '-90%';
     crossOut.style.display = 'none';
@@ -342,7 +405,7 @@ onlyTextpanelTestimonialVariables.forEach(testimonial => {
     const onlyTextpanelTestimonialtextEl = document.createElement('p');
     onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
     const onlyTextpanelTestimonialSignatureEl = document.createElement('p');
-    onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialSignatureEl');
+    onlyTextpanelTestimonialSignatureEl.classList.add('onlyTextpanelTestimonialSignatureEl');
 
     const onlyTextpanelTestimonialtext = testimonial.text;
     const onlyTextpanelTestimonialSignature = testimonial.subText;
