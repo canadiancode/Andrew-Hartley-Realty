@@ -7,6 +7,7 @@
   --font-Helvetica: "Helvetica", serif;
   --light-transparent-bg-color: rgba(255, 255, 255, 0.3);
   --dark-transparent-bg-color: rgba(20, 20, 20, 0.7);
+  --border-radius: 5px;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 }
 
 h1, h2, h3, h4, p {
-  font-family: "Helvetica", serif;
+  font-family: "Playfair Display", serif;
 }
 
 .desktop-header {
@@ -105,18 +106,19 @@ h1, h2, h3, h4, p {
   .desktop-header .desktop-header-right {
     justify-content: center;
     margin: 0 auto;
+    padding-right: 0em;
   }
 }
 .desktop-header .desktop-header-right .headerMenuItems {
   display: flex;
   justify-content: space-around;
   align-self: center;
+  padding: 0em;
 }
 @media only screen and (max-width: 900px) {
   .desktop-header .desktop-header-right .headerMenuItems {
     justify-content: center;
     flex-direction: column;
-    margin-left: -2.5em;
   }
 }
 .desktop-header .desktop-header-right .headerMenuItems .navItem {
@@ -157,7 +159,12 @@ h1, h2, h3, h4, p {
   display: flex;
   flex-direction: column;
   padding-top: 12%;
-  padding-right: 1em;
+  padding-right: 1.1em;
+  transform: translateX(4em);
+  transition-duration: 3s;
+}
+.desktop-header .headerSocialLinks .headerMobileSocialIconLink {
+  transition-duration: 3s;
 }
 @media only screen and (max-width: 900px) {
   .desktop-header .headerSocialLinks {
@@ -165,11 +172,10 @@ h1, h2, h3, h4, p {
     display: grid;
     grid-gap: 1.5em;
     grid-template-columns: repeat(2, 1fr);
-    right: auto;
-    left: auto;
     margin: 0 auto;
     flex-direction: column;
-    padding-right: 1.7em;
+    padding-right: 0em;
+    transform: translateX(0.5em);
   }
 }
 
@@ -213,6 +219,9 @@ html:not([data-scroll="0"]) .desktop-header {
 }
 html:not([data-scroll="0"]) .businessLogo {
   text-shadow: 1px 1px 6px var(--light-bg-color);
+}
+html:not([data-scroll="0"]) .headerSocialLinks {
+  transform: translateX(0em);
 }
 
 .AutoPlayVideo-Section {
@@ -302,6 +311,7 @@ html:not([data-scroll="0"]) .businessLogo {
   margin: 2em 0 2em 0;
   text-align: center;
   font-weight: lighter;
+  text-shadow: 1px 1px 3px var(--dark-accent-color);
 }
 .ImagesTextPanel-Section .panelContainer {
   display: grid;
@@ -331,12 +341,13 @@ html:not([data-scroll="0"]) .businessLogo {
   height: 25em;
   position: relative;
   width: 100%;
+  border-radius: var(--border-radius);
   transition: var(--transition-default);
 }
 .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs:hover {
   filter: brightness(150%);
   box-shadow: 2px 2px 4px 1px var(--dark-accent-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 }
 .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs:hover .imageTextPanelText {
   color: var(--dark-accent-color);
@@ -381,7 +392,7 @@ html:not([data-scroll="0"]) .businessLogo {
 }
 .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
   border: solid 1px var(--light-accent-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   margin: 20% -5% 20% 10%;
   padding: 20% 10% 10% 10%;
   box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
@@ -397,6 +408,9 @@ html:not([data-scroll="0"]) .businessLogo {
   margin-bottom: 2em;
   line-height: 200%;
   color: var(--light-accent-color);
+}
+.RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h1 {
+  text-shadow: 1px 1px 2px var(--light-accent-color);
 }
 .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv .leftImageRightTextImageButton {
   width: 190px;
@@ -420,7 +434,7 @@ html:not([data-scroll="0"]) .businessLogo {
   width: 100%;
   padding: 0%;
   box-shadow: 2px 2px 13px 2px var(--dark-accent-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 }
 
 .OnlyTextPanelTestimonial-Section {
@@ -437,33 +451,46 @@ html:not([data-scroll="0"]) .businessLogo {
   text-align: center;
   width: 100%;
   font-weight: lighter;
+  text-shadow: 1px 1px 2px var(--dark-accent-color);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv {
   margin: 1em 2em;
-  padding: 1em;
   border: 1px solid var(--light-bg-color);
   box-shadow: 6px 6px 8px #b8b8b8, -6px -6px 8px var(--light-accent-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   transition: var(--transition-default);
   max-width: 32em;
+  background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+  position: relative;
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv:hover {
-  box-shadow: 33px 33px 65px #bebebe, -33px -33px 65px var(--light-accent-color);
+  box-shadow: 3px 4px 8px 0px var(--dark-accent-color);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialtextEl {
   transition: var(--transition-default);
   margin-bottom: 2em;
   font-size: larger;
   line-height: 200%;
+  color: var(--light-accent-color);
+  margin: 1em;
+  margin-bottom: 4em;
+}
+.OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialSignatureEl {
+  color: var(--light-accent-color);
+  position: absolute;
+  bottom: 7%;
+  margin: 0 auto;
+  width: 100%;
+  text-shadow: 1px 1px 2px var(--light-accent-color);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialDivEl {
   height: 100%;
-  width: 100%;
+  width: 90%;
   text-align: center;
   color: var(--dark-accent-color);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
+  grid-gap: 0em;
   min-height: 10em;
   margin: 0 auto;
   justify-items: center;
@@ -578,6 +605,9 @@ html:not([data-scroll="0"]) .businessLogo {
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h3, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv p, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h3, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
   color: var(--light-accent-color);
 }
+.ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1 {
+  text-shadow: 1px 1px 2px var(--light-accent-color);
+}
 @media screen and (max-width: 900px) {
   .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv {
     margin: 0 auto;
@@ -605,6 +635,7 @@ html:not([data-scroll="0"]) .businessLogo {
   width: 100%;
   text-align: center;
   font-size: 1.5em;
+  text-shadow: 1px 1px 2px var(--light-accent-color);
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv p {
   max-width: 50%;
@@ -663,9 +694,10 @@ html:not([data-scroll="0"]) .businessLogo {
   margin-bottom: 2em;
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form input {
-  height: 1.8em;
+  height: 2.4em;
+  width: 16em;
   border: 1px solid var(--dark-accent-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a {
   margin: 0 auto;
@@ -681,7 +713,7 @@ html:not([data-scroll="0"]) .businessLogo {
   transition: var(--transition-default);
   font-weight: normal;
   cursor: pointer;
-  margin-left: 3px;
+  margin-left: 5px;
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a button:hover {
   background-color: var(--dark-accent-color);

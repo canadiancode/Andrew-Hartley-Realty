@@ -203,7 +203,6 @@ var headerSocialLinks = document.createElement('div');
 headerSocialLinks.classList.add('headerSocialLinks');
 headerDiv.appendChild(headerSocialLinks); // for the icon output onto the DOM
 
-console.log(headerMobileSocialIcons.length);
 headerMobileSocialIcons.forEach(function (social) {
   var headerMobileSocialIconLink = document.createElement('a');
   headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
@@ -214,7 +213,6 @@ headerMobileSocialIcons.forEach(function (social) {
   headerMobileSocialIconImgEl.src = social.Icon;
   headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
   headerSocialLinks.appendChild(headerMobileSocialIconLink);
-  console.log(headerMobileSocialIconImgSrc);
 }); // Open menu function
 
 hamburger.addEventListener('click', function (e) {
@@ -431,7 +429,7 @@ var onlyTextpanelTestimonialVariables = [{
   text: '"Andrew is Herbert Banker’s No. 1 agent, and his expertise has propelled him to the top of luxury real estate agents in the Toronto area."',
   subText: '- Evolve Realty Magazine'
 }, {
-  text: '"Andrew Hartley inducted into the Toronto Real Estate Society Hall of Fame."',
+  text: '"Andrew Hartley was recently inducted into the Toronto Real Estate Society Hall of Fame in 2022, being the youngest agent in history."',
   subText: '- GTA Reporter'
 }, {
   text: '"In his more-than-two-decade career, Hartley has racked up more than $2 billion in sales, consistently ranking as one of the top agents in the country."',
@@ -608,6 +606,51 @@ contactCTAemailformRightSide.forEach(function (element) {
   contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
   ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
 }); // Footer --Section
+// footer variables
+
+var footerTextInfo = [{
+  // business name
+  bizNameHeading: 'Andrew Hartley Realty',
+  // address
+  addressHeading: 'Address:',
+  maddressText: '123 Main Street, Toronto, ON M4C 4X6',
+  // phone number
+  phoneHeading: 'Phone Number:',
+  phoneText: '613-123-4567',
+  // email
+  emailHeading: 'Email:',
+  emailText: 'Andrew@andrewhartley.com'
+}];
+var footerMenuHeader = 'Quick Links';
+var footerMenuLinks = [{
+  text: 'Home',
+  URL: '#'
+}, {
+  text: 'About Us',
+  URL: '#'
+}, {
+  text: 'Contact Us',
+  URL: '#'
+}, {
+  text: 'Policy',
+  URL: ''
+}]; // Output of elements onto the DOM
+
+var footerContainer = document.querySelector('footer'); // To push the social media icons to the bottom of the footer
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  document.addEventListener('scroll', function (e) {
+    var documentHeight = document.body.scrollHeight;
+    var currentScroll = window.scrollY + window.innerHeight; // When the user is a certain px away from the bottom, fire the event.
+    // the modifier is the number of pixels 
+
+    var modifier = 200;
+
+    if (currentScroll + modifier > documentHeight) {
+      console.log('You are near the bottom!');
+    }
+  });
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -636,7 +679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55180" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

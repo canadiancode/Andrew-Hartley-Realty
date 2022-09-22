@@ -104,9 +104,6 @@ const headerSocialLinks = document.createElement('div');
 headerSocialLinks.classList.add('headerSocialLinks');
 headerDiv.appendChild(headerSocialLinks);
     // for the icon output onto the DOM
-
-    console.log(headerMobileSocialIcons.length);
-
     headerMobileSocialIcons.forEach(social => {
         const  headerMobileSocialIconLink = document.createElement('a');
         headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
@@ -117,16 +114,7 @@ headerDiv.appendChild(headerSocialLinks);
         headerMobileSocialIconImgEl.src = social.Icon;
         headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
         headerSocialLinks.appendChild(headerMobileSocialIconLink);
-
-        console.log(headerMobileSocialIconImgSrc);
-
     });
-
-
-
-
-
-
 
 // Open menu function
 hamburger.addEventListener('click', function(e) {
@@ -377,7 +365,7 @@ const onlyTextpanelTestimonialVariables = [
         subText: '- Evolve Realty Magazine'
     },
     {
-        text: '"Andrew Hartley inducted into the Toronto Real Estate Society Hall of Fame."',
+        text: '"Andrew Hartley was recently inducted into the Toronto Real Estate Society Hall of Fame in 2022, being the youngest agent in history."',
         subText: '- GTA Reporter'
     },
     {
@@ -581,6 +569,70 @@ contactCTAemailformRightSide.forEach(element => {
     contactCTAemailformRightSideSubmitBtnURL.href = element.buttonURL;
     contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
     ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
-
 });
+
 // Footer --Section
+// footer variables
+const footerTextInfo = [
+    {
+        // business name
+        bizNameHeading: 'Andrew Hartley Realty',
+        
+        // address
+        addressHeading: 'Address:',
+        maddressText: '123 Main Street, Toronto, ON M4C 4X6',
+
+        // phone number
+        phoneHeading: 'Phone Number:',
+        phoneText: '613-123-4567',
+
+        // email
+        emailHeading: 'Email:',
+        emailText: 'Andrew@andrewhartley.com'
+    }
+];
+
+const footerMenuHeader = 'Quick Links';
+const footerMenuLinks = [
+    {
+        text: 'Home',
+        URL: '#'
+    },
+    {
+        text: 'About Us',
+        URL: '#'
+    },
+    {
+        text: 'Contact Us',
+        URL: '#'
+    },
+    {
+        text: 'Policy',
+        URL: ''
+    },
+];
+
+// Output of elements onto the DOM
+const footerContainer = document.querySelector('footer');
+
+
+
+
+
+
+
+
+
+// To push the social media icons to the bottom of the footer
+document.addEventListener('DOMContentLoaded', function(e) {
+    document.addEventListener('scroll', function(e) {
+        let documentHeight = document.body.scrollHeight;
+        let currentScroll = window.scrollY + window.innerHeight;
+        // When the user is a certain px away from the bottom, fire the event.
+        // the modifier is the number of pixels 
+        let modifier = 200; 
+        if(currentScroll + modifier > documentHeight) {
+            console.log('You are near the bottom!');
+        }
+    });
+});
