@@ -606,22 +606,24 @@ contactCTAemailformRightSide.forEach(function (element) {
   contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
   ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
 }); // Footer --Section
-// footer variables
+// footer variables for the text-only list
 
-var footerTextInfo = [{
-  // business name
-  bizNameHeading: 'Andrew Hartley Realty',
+var footerMenuTextHeadingVar = 'Andrew Hartley Realty';
+var footerMenuTextInfo = [{
   // address
-  addressHeading: 'Address:',
-  maddressText: '123 Main Street, Toronto, ON M4C 4X6',
+  title: 'Address:',
+  info: '123 Main St. Toronto, ON M4C4X6'
+}, {
   // phone number
-  phoneHeading: 'Phone Number:',
-  phoneText: '613-123-4567',
+  title: 'Phone Number:',
+  info: '613-123-4567'
+}, {
   // email
-  emailHeading: 'Email:',
-  emailText: 'Andrew@andrewhartley.com'
-}];
-var footerMenuHeader = 'Quick Links';
+  title: 'Email:',
+  info: 'Andrew@andrewhartley.com'
+}]; // Footer variables for link list
+
+var footerMenuLinksHeading = 'Quick Links';
 var footerMenuLinks = [{
   text: 'Home',
   URL: '#'
@@ -633,10 +635,70 @@ var footerMenuLinks = [{
   URL: '#'
 }, {
   text: 'Policy',
-  URL: ''
+  URL: '#'
+}]; // Source (only) variable for embedded Google Map
+
+var footerMap = [{
+  iframeSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.364388369042!2d-79.3020559953908!3d43.682187373323764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cc1a464af03f%3A0x1c36d03a1cdb30b9!2s123%20Main%20St%2C%20Toronto%2C%20ON%20M4E%202V9!5e0!3m2!1sen!2sca!4v1663909450399!5m2!1sen!2sca'
 }]; // Output of elements onto the DOM
 
-var footerContainer = document.querySelector('footer'); // To push the social media icons to the bottom of the footer
+var footerContainer = document.querySelector('.footer'); // output of the footer quick links
+
+var footerMenuTextLinkDiv = document.createElement('div');
+footerMenuTextLinkDiv.classList.add('footerMenuTextLinkDiv');
+var footerMenuHeaderEl = document.createElement('h3');
+footerMenuHeaderEl.classList.add('footerMenuHeaderEl');
+footerMenuHeaderEl.appendChild(document.createTextNode(footerMenuLinksHeading));
+footerMenuTextLinkDiv.appendChild(footerMenuHeaderEl);
+footerContainer.appendChild(footerMenuTextLinkDiv);
+footerMenuLinks.forEach(function (link) {
+  var footerMenuLinkTextLLinkEl = document.createElement('a');
+  footerMenuLinkTextLLinkEl.classList.add('footerMenuLinkTextLLinkEl');
+  footerMenuLinkTextLLinkEl.href = link.URL;
+  var footerMenuLinkText = document.createElement('p');
+  footerMenuLinkText.classList.add('footerMenuLinkText');
+  footerMenuLinkTextLLinkEl.appendChild(footerMenuLinkText);
+  footerMenuLinkText.appendChild(document.createTextNode(link.text));
+  footerMenuTextLinkDiv.appendChild(footerMenuLinkTextLLinkEl);
+}); // Footer Google Maps section output 
+
+var footerMenuMapDiv = document.createElement('div');
+footerMenuMapDiv.classList.add('footerMenuMapDiv');
+var footerMenuMapIframe = document.createElement('iframe');
+footerMenuMapIframe.classList.add('footerMenuMapIframe');
+footerMenuMapIframe.src = footerMap[0].iframeSrc;
+footerMenuMapIframe.allowfullscreen = '';
+footerMenuMapIframe.referrerpolicy = 'no-referrer-when-downgrade';
+footerMenuMapIframe.loading = 'lazy';
+footerMenuMapIframe.style.border = '0';
+footerMenuMapDiv.appendChild(footerMenuMapIframe);
+footerContainer.appendChild(footerMenuMapDiv); // Footer Text info section output
+
+var footerMenuContactInfo = document.createElement('div');
+footerMenuContactInfo.classList.add('footerMenuContactInfo');
+footerContainer.appendChild(footerMenuContactInfo);
+var footerMenuTextHeading = document.createElement('h3');
+footerMenuTextHeading.classList.add('footerMenuTextHeading');
+footerMenuTextHeading.appendChild(document.createTextNode(footerMenuTextHeadingVar));
+footerMenuContactInfo.appendChild(footerMenuTextHeading);
+footerMenuTextInfo.forEach(function (text) {
+  var footerMenuTextTitle = document.createElement('p');
+  footerMenuTextTitle.classList.add('footerMenuTextTitle');
+  footerMenuTextTitle.appendChild(document.createTextNode(text.title));
+  var footerMenuTextInformation = document.createElement('p');
+  footerMenuTextInformation.classList.add('footerMenuTextInformation');
+  footerMenuTextInformation.appendChild(document.createTextNode(text.info));
+  footerMenuContactInfo.appendChild(footerMenuTextTitle);
+  footerMenuContactInfo.appendChild(footerMenuTextInformation);
+}); // Devanada signature
+
+var footerBottomSection = document.createElement('div');
+footerBottomSection.classList.add('footerBottomSection');
+var devanadaSignature = 'Website designed and developed by Devanada.';
+var devanadaSignatureEl = document.createElement('p');
+devanadaSignatureEl.classList.add('devanadaSignatureEl');
+devanadaSignatureEl.appendChild(document.createTextNode(devanadaSignature));
+footerContainer.appendChild(devanadaSignatureEl); // To push the social media icons to the bottom of the footer
 
 document.addEventListener('DOMContentLoaded', function (e) {
   document.addEventListener('scroll', function (e) {
@@ -646,8 +708,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     var modifier = 200;
 
-    if (currentScroll + modifier > documentHeight) {
-      console.log('You are near the bottom!');
+    if (currentScroll + modifier > documentHeight && window.innerWidth > 900) {
+      headerSocialLinks.style.paddingTop = '55vh';
+    } else {
+      headerSocialLinks.style.paddingTop = '12%';
     }
   });
 });
@@ -679,7 +743,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59856" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

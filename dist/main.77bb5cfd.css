@@ -1,5 +1,5 @@
 :root {
-  --dark-bg-color: #1F2022;
+  --dark-bg-color: #363535;
   --light-bg-color: rgb(153, 151, 151);
   --light-accent-color: white;
   --dark-accent-color: black;
@@ -159,9 +159,9 @@ h1, h2, h3, h4, p {
   display: flex;
   flex-direction: column;
   padding-top: 12%;
-  padding-right: 1.1em;
-  transform: translateX(4em);
-  transition-duration: 3s;
+  padding-right: 0.5em;
+  transform: translateX(5em);
+  transition-duration: 2s;
 }
 .desktop-header .headerSocialLinks .headerMobileSocialIconLink {
   transition-duration: 3s;
@@ -465,6 +465,7 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv:hover {
   box-shadow: 3px 4px 8px 0px var(--dark-accent-color);
+  transform: scale(1.04);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialtextEl {
   transition: var(--transition-default);
@@ -699,6 +700,11 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   border: 1px solid var(--dark-accent-color);
   border-radius: var(--border-radius);
 }
+@media only screen and (max-width: 400px) {
+  .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form input {
+    width: 12em;
+  }
+}
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a {
   margin: 0 auto;
 }
@@ -720,6 +726,87 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   border: 1px solid var(--light-accent-color);
   color: var(--light-accent-color);
   font-weight: bold;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+  padding: 2em 15%;
+  margin: 0;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 900px) {
+  .footer {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2em 5%;
+  }
+}
+.footer .footerMenuTextLinkDiv {
+  max-width: 9em;
+  padding: 2em;
+  display: grid;
+  grid-gap: 2.2em;
+}
+.footer .footerMenuTextLinkDiv h3 {
+  margin: 0;
+  color: var(--light-accent-color);
+  text-shadow: 1px 1px 2px var(--light-accent-color);
+}
+.footer .footerMenuTextLinkDiv a {
+  text-decoration: none;
+  margin: 0;
+  width: max-content;
+}
+.footer .footerMenuTextLinkDiv a:hover {
+  text-decoration: underline white;
+}
+.footer .footerMenuTextLinkDiv a p {
+  color: var(--light-accent-color);
+  text-decoration: none;
+  margin: 0;
+}
+.footer .footerMenuMapDiv {
+  height: 100%;
+}
+.footer .footerMenuMapDiv .footerMenuMapIframe {
+  height: 100%;
+  width: 100%;
+}
+@media only screen and (max-width: 300px) {
+  .footer .footerMenuMapDiv .footerMenuMapIframe {
+    width: 90%;
+  }
+}
+.footer .footerMenuContactInfo {
+  max-width: 15em;
+  margin: 2em;
+  display: grid;
+  grid-gap: 0em;
+}
+.footer .footerMenuContactInfo h3 {
+  margin: 0;
+  color: var(--light-accent-color);
+  text-shadow: 1px 1px 2px var(--dark-accent-color);
+}
+.footer .footerMenuContactInfo p {
+  color: var(--light-accent-color);
+  text-decoration: none;
+  margin: 0;
+}
+.footer .footerMenuContactInfo .footerMenuTextTitle {
+  margin-top: 2em;
+  text-decoration: underline;
+}
+.footer .devanadaSignatureEl {
+  color: var(--light-accent-color);
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin: 0.5em auto;
+  font-size: 1em;
+  margin-top: 3em;
+  text-align: center;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
