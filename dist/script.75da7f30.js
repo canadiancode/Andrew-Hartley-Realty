@@ -118,6 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
+// Find the top of each section using --Section
 // Variables for Social Platforms
 var headerMobileSocialIcons = [//Facebook
 {
@@ -153,14 +154,17 @@ var headerMenuList = [{
   title: 'Home',
   href: '#'
 }, {
-  title: 'Our Properties',
-  href: '#'
-}, {
   title: 'About',
-  href: '#'
+  href: '/#about' //Find the ID input using --id
+
+}, {
+  title: 'Our Properties',
+  href: '/#ourproperties' //Find the ID input using --id
+
 }, {
   title: 'Contact',
-  href: '#'
+  href: '/#contact' //Find the ID input using --id
+
 }]; // Desktop Header Section - Output onto DOM
 // left side
 
@@ -347,6 +351,8 @@ var imageTextPanelURLsAndText = [{
 }]; // Output of the Main heading for the image panels
 
 var imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
+imageTextPanelContainer.setAttribute('id', 'about'); // --id
+
 var imageTextPanelHeading = document.createElement('h1');
 imageTextPanelHeading.classList.add('imageTextPanelHeading');
 imageTextPanelContainer.appendChild(imageTextPanelHeading);
@@ -486,6 +492,7 @@ var imageZoomOnHoverURLs = [{
 }]; // Images Zoom On Hover Output for background
 
 var imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
+imageOnHoverContainer.setAttribute('id', 'ourproperties'); //--id
 
 for (var j = 0; j < imageZoomOnHoverURLs.length; j++) {
   var _imageOnHoverDivs = document.createElement('div');
@@ -555,6 +562,8 @@ var contactCTAemailformRightSide = [{
 // creating the divs for the two sides
 
 var ContactCTAEmailSubmissionContainer = document.querySelector('.ContactCTAEmailSubmission-Section');
+ContactCTAEmailSubmissionContainer.setAttribute('id', 'contact'); // --id
+
 var ContactCTAEmailSubmissionLeftDiv = document.createElement('div');
 ContactCTAEmailSubmissionLeftDiv.classList.add('ContactCTAEmailSubmissionLeftDiv');
 var ContactCTAEmailSubmissionRightDiv = document.createElement('div');
@@ -612,7 +621,7 @@ var footerMenuTextHeadingVar = 'Andrew Hartley Realty';
 var footerMenuTextInfo = [{
   // address
   title: 'Address:',
-  info: '123 Main St. Toronto, ON M4C4X6'
+  info: '123 Main St. Toronto, ON M4C 4X6'
 }, {
   // phone number
   title: 'Phone Number:',
@@ -743,7 +752,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59856" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61998" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

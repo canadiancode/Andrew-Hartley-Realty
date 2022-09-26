@@ -1,3 +1,5 @@
+// Find the top of each section using --Section
+
 // Variables for Social Platforms
 const headerMobileSocialIcons = [
     //Facebook
@@ -43,16 +45,16 @@ const headerMenuList = [
         href: '#',
     },
     {
-        title: 'Our Properties',
-        href: '#',
+        title: 'About',
+        href: '/#about',  //Find the ID input using --id
     },
     {
-        title: 'About',
-        href: '#',
+        title: 'Our Properties',
+        href: '/#ourproperties', //Find the ID input using --id
     },
     {
         title: 'Contact',
-        href: '#',
+        href: '/#contact', //Find the ID input using --id
     }
 ];
 
@@ -265,6 +267,7 @@ window.onresize = desktopWindowResize;
 
     // Output of the Main heading for the image panels
     const imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
+    imageTextPanelContainer.setAttribute('id', 'about'); // --id
     const imageTextPanelHeading = document.createElement('h1');
     imageTextPanelHeading.classList.add('imageTextPanelHeading');
     imageTextPanelContainer.appendChild(imageTextPanelHeading);
@@ -439,6 +442,7 @@ const imageZoomOnHoverURLs = [
 
 // Images Zoom On Hover Output for background
 const imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
+imageOnHoverContainer.setAttribute('id', 'ourproperties'); //--id
 for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
     const imageOnHoverDivs = document.createElement('div');
     imageOnHoverDivs.classList.add('imageOnHoverDivs');
@@ -514,6 +518,7 @@ const contactCTAemailformRightSide = [
 // Contact CTA and Email Submission Output to the DOM
 // creating the divs for the two sides
 const ContactCTAEmailSubmissionContainer = document.querySelector('.ContactCTAEmailSubmission-Section');
+ContactCTAEmailSubmissionContainer.setAttribute('id', 'contact'); // --id
 const ContactCTAEmailSubmissionLeftDiv = document.createElement('div');
 ContactCTAEmailSubmissionLeftDiv.classList.add('ContactCTAEmailSubmissionLeftDiv');
 const ContactCTAEmailSubmissionRightDiv = document.createElement('div');
@@ -578,7 +583,7 @@ const footerMenuTextInfo = [
     {   
         // address
         title: 'Address:',
-        info: '123 Main St. Toronto, ON M4C4X6'
+        info: '123 Main St. Toronto, ON M4C 4X6'
     },
     {
         // phone number
