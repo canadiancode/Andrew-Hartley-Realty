@@ -237,7 +237,20 @@ window.onresize = desktopWindowResize;
     AutoPlayVideoButttonLink.appendChild(AutoPlayVideoButton);
     AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButttonLink);
     
+    // Pop-up animation on page load for autoplay video section
+    const autoplayVideoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+    const autoPlayVideohiddenElements = document.querySelectorAll('.sectionText');
+    autoPlayVideohiddenElements.forEach((el) => autoplayVideoObserver.observe(el));
 
+    
 
 // Images and Text Panel --Section
     // Images and Text Panel Section Variables
@@ -306,6 +319,20 @@ window.onresize = desktopWindowResize;
         imageTextPanelDiv.style.backgroundSize = 'cover';
     });
 
+    // Pop-up animation on page load for image text panel section
+    const imageTextPanelDivObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    const imageTextPanelDivAnimation = document.querySelectorAll('.imageTextPanelLink');
+    imageTextPanelDivAnimation.forEach((el) => imageTextPanelDivObserver.observe(el));
+
 // Right Image Left Text --Section
     // Variables for the Right Image Left Text section
 const leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
@@ -358,6 +385,21 @@ leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
 leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
 LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs);
+
+// Pop-up animation on page load for single image with text section
+const singleImagewithTextDivOberver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const singleImagewithTextDiv = document.querySelectorAll('.LeftImageRightTextSectionLeftSideDiv');
+singleImagewithTextDiv.forEach((el) => singleImagewithTextDivOberver.observe(el));
+
 
 // Only Text Panel Testimonial --Section
 // variables
@@ -413,6 +455,20 @@ onlyTextpanelTestimonialVariables.forEach(testimonial => {
 
 });
 
+// Testimonial animation going from left to right
+const textPanelOnlyTestimonialObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const onlyTextPanelTestimonialDivElements = document.querySelectorAll('.onlyTextpanelTestimonialtextDiv');
+onlyTextPanelTestimonialDivElements.forEach((el) => textPanelOnlyTestimonialObserver.observe(el));
+
 
 // Images Zoom On Hover --Section
     // Variables
@@ -430,12 +486,12 @@ const imageZoomOnHoverURLs = [
     },
     {
         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Downtown.avif?v=1663176288',
-        Text: 'Downtown Toronto',
+        Text: 'Downtown',
         href: '#'
     },
     {
         URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
-        Text: 'Richmond Hill',
+        Text: 'Hamilton',
         href: '#'
     }
 ];

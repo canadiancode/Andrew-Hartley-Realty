@@ -4,6 +4,7 @@
   --light-accent-color: white;
   --dark-accent-color: black;
   --transition-default: ease 0.4s;
+  --transition-animation: all 1s;
   --font-Helvetica: "Helvetica", serif;
   --light-transparent-bg-color: rgba(255, 255, 255, 0.3);
   --dark-transparent-bg-color: rgba(20, 20, 20, 0.7);
@@ -159,7 +160,7 @@ h1, h2, h3, h4, p {
 }
 .desktop-header .headerSocialLinks {
   position: absolute;
-  right: 1%;
+  right: 10px;
   display: flex;
   flex-direction: column;
   padding-top: 12%;
@@ -267,6 +268,11 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   font-size: 2.5em;
   overflow: hidden;
 }
+.AutoPlayVideo-Section .sectionTextDiv .sectionText {
+  opacity: 0;
+  transition: var(--transition-animation);
+  transform: translateY(-0.5em);
+}
 .AutoPlayVideo-Section .sectionTextDiv .sectionSubText {
   font-size: 1.5em;
   margin-bottom: 1.7em;
@@ -292,6 +298,10 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   background-color: var(--light-accent-color);
   color: black;
   font-weight: bold;
+}
+.AutoPlayVideo-Section .sectionTextDiv .show {
+  opacity: 1;
+  transform: translateY(0em);
 }
 .AutoPlayVideo-Section .video {
   width: 100vw;
@@ -340,6 +350,13 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 .ImagesTextPanel-Section .panelContainer .imageTextPanelLink {
   height: 100%;
   width: 100%;
+  opacity: 0;
+  transition: var(--transition-animation);
+  transform: scale(0.8);
+}
+.ImagesTextPanel-Section .panelContainer .show {
+  opacity: 1;
+  transform: scale(1);
 }
 .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs {
   height: 25em;
@@ -401,6 +418,9 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   padding: 20% 10% 10% 10%;
   box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
   background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+  transform: translateX(25em);
+  transition: var(--transition-animation);
+  filter: blur(0.3em);
 }
 @media only screen and (max-width: 900px) {
   .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
@@ -434,6 +454,13 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   color: var(--dark-accent-color);
   font-weight: bold;
 }
+.RightImageLeftText-Section .show {
+  transform: translateX(0em);
+  filter: blur(0);
+}
+.RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv {
+  z-index: 2;
+}
 .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv .leftImageRightTextImageImageEl {
   width: 100%;
   padding: 0%;
@@ -466,6 +493,8 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   max-width: 32em;
   background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
   position: relative;
+  transform: scale(0.8);
+  transition: var(--transition-animation);
 }
 .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv:hover {
   box-shadow: 3px 4px 8px 0px var(--dark-accent-color);
@@ -504,6 +533,9 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialDivEl {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+.OnlyTextPanelTestimonial-Section .show {
+  transform: scale(1);
 }
 
 .ImagesZoomOnHover-Section {

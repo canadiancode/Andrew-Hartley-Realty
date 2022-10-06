@@ -5,6 +5,7 @@
     --light-accent-color: white;
     --dark-accent-color: black;
     --transition-default: ease 0.4s;
+    --transition-animation: all 1s;
     --font-Helvetica: 'Helvetica', serif;
     --light-transparent-bg-color: rgba(255, 255, 255, 0.3);
     --dark-transparent-bg-color: rgba(20, 20, 20, 0.7);
@@ -146,7 +147,7 @@ h1, h2, h3, h4, p {
     }
     .headerSocialLinks {
         position: absolute;
-        right: 1%;
+        right: 10px;
         display: flex;
         flex-direction: column;
         padding-top: 12%;
@@ -253,7 +254,12 @@ html:not([data-scroll='0']) {
             margin-left: 0.5em;
             color: var(--light-accent-color);
             font-size: 2.5em;  
-            overflow: hidden;        
+            overflow: hidden;     
+        }
+        .sectionText {
+            opacity: 0;
+            transition: var(--transition-animation);
+            transform: translateY(-0.5em);
         }
         .sectionSubText {
             font-size: 1.5em;
@@ -280,6 +286,10 @@ html:not([data-scroll='0']) {
                     font-weight: bold;
                 }
             }
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0em);
         }
     }
     .video {
@@ -327,6 +337,13 @@ html:not([data-scroll='0']) {
         .imageTextPanelLink {
             height: 100%;
             width: 100%;
+            opacity: 0;
+            transition: var(--transition-animation);
+            transform: scale(0.8);
+        }
+        .show {
+            opacity: 1;
+            transform: scale(1);
         }
         .ImagesTextPanelDivs {
             height: 25em;
@@ -390,6 +407,9 @@ html:not([data-scroll='0']) {
         padding: 20% 10% 10% 10%;
         box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
         background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+        transform: translateX(25em);
+        transition: var(--transition-animation);
+        filter: blur(0.3em);
         @media only screen and (max-width: 900px) {
             & {
                 padding: 8% 10% 10% 10%;
@@ -423,7 +443,12 @@ html:not([data-scroll='0']) {
             }
         }
     }
+    .show {
+        transform: translateX(0em);
+        filter: blur(0);
+    }
     .LeftImageRightTextSectionRightSideDiv {
+        z-index: 2;
         .leftImageRightTextImageImageEl {
             width: 100%;
             padding: 0%;
@@ -459,6 +484,8 @@ html:not([data-scroll='0']) {
         max-width: 32em;
         background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
         position: relative;
+        transform: scale(0.8);
+        transition: var(--transition-animation);
         &:hover {
             box-shadow: 3px 4px 8px 0px var(--dark-accent-color);
             transform: scale(1.04);
@@ -497,6 +524,9 @@ html:not([data-scroll='0']) {
                 grid-template-columns: repeat(1, 1fr);
             }
         }
+    }
+    .show {
+        transform: scale(1);
     }
 }
 

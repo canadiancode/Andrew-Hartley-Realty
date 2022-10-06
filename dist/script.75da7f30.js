@@ -328,7 +328,21 @@ AutoPlayVideoButttonLink.classList.add('AutoPlayVideoButttonLink');
 AutoPlayVideoButttonLink.href = AutoPlayVideoButtonURL;
 AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle.toUpperCase()));
 AutoPlayVideoButttonLink.appendChild(AutoPlayVideoButton);
-AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButttonLink); // Images and Text Panel --Section
+AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButttonLink); // Pop-up animation on page load for autoplay video section
+
+var autoplayVideoObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+});
+var autoPlayVideohiddenElements = document.querySelectorAll('.sectionText');
+autoPlayVideohiddenElements.forEach(function (el) {
+  return autoplayVideoObserver.observe(el);
+}); // Images and Text Panel --Section
 // Images and Text Panel Section Variables
 
 var imageTextPanelTitle = 'Explore Andrew Hartley Realty';
@@ -382,6 +396,20 @@ imageTextPanelURLsAndText.forEach(function (panel) {
   var imageTextPanelBackgroundImageURL = panel.url;
   imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('" + imageTextPanelBackgroundImageURL + "')";
   imageTextPanelDiv.style.backgroundSize = 'cover';
+}); // Pop-up animation on page load for image text panel section
+
+var imageTextPanelDivObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+});
+var imageTextPanelDivAnimation = document.querySelectorAll('.imageTextPanelLink');
+imageTextPanelDivAnimation.forEach(function (el) {
+  return imageTextPanelDivObserver.observe(el);
 }); // Right Image Left Text --Section
 // Variables for the Right Image Left Text section
 
@@ -427,7 +455,21 @@ leftImageRightTextImageButtonURLs.classList.add('leftImageRightTextImageButtonUR
 leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
 leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
 leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
-LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs); // Only Text Panel Testimonial --Section
+LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs); // Pop-up animation on page load for single image with text section
+
+var singleImagewithTextDivOberver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+});
+var singleImagewithTextDiv = document.querySelectorAll('.LeftImageRightTextSectionLeftSideDiv');
+singleImagewithTextDiv.forEach(function (el) {
+  return singleImagewithTextDivOberver.observe(el);
+}); // Only Text Panel Testimonial --Section
 // variables
 
 var onlyTextpanelTestimonialHeader = 'Latest Press and Media';
@@ -469,6 +511,20 @@ onlyTextpanelTestimonialVariables.forEach(function (testimonial) {
   onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialSignatureEl); // adding the text into the DOM
 
   onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextDiv);
+}); // Testimonial animation going from left to right
+
+var textPanelOnlyTestimonialObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+});
+var onlyTextPanelTestimonialDivElements = document.querySelectorAll('.onlyTextpanelTestimonialtextDiv');
+onlyTextPanelTestimonialDivElements.forEach(function (el) {
+  return textPanelOnlyTestimonialObserver.observe(el);
 }); // Images Zoom On Hover --Section
 // Variables
 
@@ -483,11 +539,11 @@ var imageZoomOnHoverURLs = [{
   href: '#'
 }, {
   URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Downtown.avif?v=1663176288',
-  Text: 'Downtown Toronto',
+  Text: 'Downtown',
   href: '#'
 }, {
   URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
-  Text: 'Richmond Hill',
+  Text: 'Hamilton',
   href: '#'
 }]; // Images Zoom On Hover Output for background
 
@@ -752,7 +808,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61998" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63895" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
