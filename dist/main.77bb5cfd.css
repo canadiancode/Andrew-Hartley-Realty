@@ -160,7 +160,7 @@ h1, h2, h3, h4, p {
 }
 .desktop-header .headerSocialLinks {
   position: absolute;
-  right: 10px;
+  right: 1em;
   display: flex;
   flex-direction: column;
   padding-top: 12%;
@@ -180,7 +180,7 @@ h1, h2, h3, h4, p {
     margin: 0 auto;
     flex-direction: column;
     padding-right: 0em;
-    transform: translateX(0.5em);
+    transform: translateX(1em);
   }
 }
 
@@ -210,6 +210,7 @@ h1, h2, h3, h4, p {
   display: none;
   color: var(--light-accent-color);
   transition: var(--transition-default);
+  text-shadow: -2px 2px var(--dark-accent-color);
 }
 
 .hamburger {
@@ -227,6 +228,11 @@ html:not([data-scroll="0"]) .businessLogo {
 }
 html:not([data-scroll="0"]) .headerSocialLinks {
   transform: translateX(0em);
+}
+@media only screen and (max-width: 900px) {
+  html:not([data-scroll="0"]) .headerSocialLinks {
+    transform: translateX(1em);
+  }
 }
 
 .AutoPlayVideo-Section {
@@ -425,6 +431,8 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 @media only screen and (max-width: 900px) {
   .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
     padding: 8% 10% 10% 10%;
+    transform: translateX(0em);
+    filter: blur(0em);
   }
 }
 .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h1, .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h3, .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv p {
@@ -585,6 +593,7 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   width: 35%;
   color: var(--light-accent-color);
   background-color: rgba(0, 0, 0, 0.6);
+  border-radius: var(--border-radius);
 }
 @media only screen and (max-width: 1000px) {
   .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverMainText {
@@ -718,6 +727,8 @@ html:not([data-scroll="0"]) .headerSocialLinks {
     margin: 0 auto;
     border: none;
     box-shadow: inset 0em -0.8em 15px 15px var(--dark-accent-color);
+    text-align: center;
+    padding-left: 0em;
   }
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1 {
@@ -726,6 +737,14 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
   margin: 1em 6em 2em 0em;
   line-height: 200%;
+}
+@media screen and (max-width: 900px) {
+  .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
+    margin: 0 auto;
+    margin-bottom: 2em;
+    max-width: 80%;
+    text-align: center;
+  }
 }
 .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form {
   margin-bottom: 2em;
@@ -775,8 +794,9 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 }
 @media only screen and (max-width: 900px) {
   .footer {
-    grid-template-columns: repeat(1, 1fr);
-    padding: 2em 5%;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 .footer .footerMenuTextLinkDiv {
@@ -784,11 +804,27 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   padding: 2em;
   display: grid;
   grid-gap: 2.2em;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (max-width: 900px) {
+  .footer .footerMenuTextLinkDiv {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    justify-items: center;
+  }
 }
 .footer .footerMenuTextLinkDiv h3 {
   margin: 0;
   color: var(--light-accent-color);
   text-shadow: 1px 1px 2px var(--light-accent-color);
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+@media only screen and (max-width: 900px) {
+  .footer .footerMenuTextLinkDiv h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 .footer .footerMenuTextLinkDiv a {
   text-decoration: none;
@@ -821,6 +857,12 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   display: grid;
   grid-gap: 0em;
 }
+@media only screen and (max-width: 900px) {
+  .footer .footerMenuContactInfo {
+    margin: 3em 0 auto;
+    max-width: 100%;
+  }
+}
 .footer .footerMenuContactInfo h3 {
   margin: 0;
   color: var(--light-accent-color);
@@ -841,7 +883,7 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   grid-column-end: 4;
   margin: 0.5em auto;
   font-size: 1em;
-  margin-top: 3em;
+  margin: 3em 0em;
   text-align: center;
   font-style: italic;
 }

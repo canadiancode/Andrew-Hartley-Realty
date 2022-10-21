@@ -92,7 +92,7 @@ headerMenuList.forEach(menuItem => {
     const linkName = menuItem.title;
     headerMenuItems.appendChild(link);
     link.appendChild(document.createTextNode(linkName.toUpperCase()));
-})
+});
 
 // Mobile Header Section - Output onto DOM
 const hamburgerIcon = document.querySelector('.mobileHeaderTab');
@@ -106,17 +106,28 @@ const headerSocialLinks = document.createElement('div');
 headerSocialLinks.classList.add('headerSocialLinks');
 headerDiv.appendChild(headerSocialLinks);
     // for the icon output onto the DOM
-    headerMobileSocialIcons.forEach(social => {
-        const  headerMobileSocialIconLink = document.createElement('a');
-        headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
-        const headerMobileSocialIconImgEl = document.createElement('img');
-        headerMobileSocialIconImgEl.classList.add('headerMobileSocialIconImgEl');
-        headerMobileSocialIconLink.appendChild(headerMobileSocialIconImgEl);
-        const headerMobileSocialIconImgSrc = social.Link;
-        headerMobileSocialIconImgEl.src = social.Icon;
-        headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
-        headerSocialLinks.appendChild(headerMobileSocialIconLink);
-    });
+headerMobileSocialIcons.forEach(social => {
+    const  headerMobileSocialIconLink = document.createElement('a');
+    headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
+    const headerMobileSocialIconImgEl = document.createElement('img');
+    headerMobileSocialIconImgEl.classList.add('headerMobileSocialIconImgEl');
+    headerMobileSocialIconLink.appendChild(headerMobileSocialIconImgEl);
+    const headerMobileSocialIconImgSrc = social.Link;
+    headerMobileSocialIconImgEl.src = social.Icon;
+    headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
+    headerSocialLinks.appendChild(headerMobileSocialIconLink);
+});
+
+const headermenuItem = document.querySelectorAll('.navItem');
+headermenuItem.forEach(item => {
+    item.addEventListener('click', () => {
+        if (window.innerWidth < 900) {
+            headerDiv.style.left = '-90%'; 
+            hamburger.style.display = 'block';
+            crossOut.style.display = 'none';
+        }
+    })
+});
 
 // Open menu function
 hamburger.addEventListener('click', function(e) {
@@ -396,7 +407,6 @@ const singleImagewithTextDivOberver = new IntersectionObserver((entries) => {
         }
     });
 });
-
 const singleImagewithTextDiv = document.querySelectorAll('.LeftImageRightTextSectionLeftSideDiv');
 singleImagewithTextDiv.forEach((el) => singleImagewithTextDivOberver.observe(el));
 
@@ -661,11 +671,11 @@ const footerMenuLinks = [
     },
     {
         text: 'About Us',
-        URL: '#'
+        URL: '/#about'
     },
     {
         text: 'Contact Us',
-        URL: '#'
+        URL: '/#contact'
     },
     {
         text: 'Policy',
