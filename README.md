@@ -1,6 +1,5 @@
 # Andrew-Hartley-Realty
 Realtor Website for Andrew Hartley
 
-The webiste I am going to use as a template:
-- https://jademillsestates.com/
-
+Built using mainly Javascript and SCSS.
+You can find the fildes making up the website in the src folder.
