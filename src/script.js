@@ -514,7 +514,7 @@ for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
     imageOnHoverDivs.classList.add('imageOnHoverDivs');
     imageOnHoverContainer.appendChild(imageOnHoverDivs);
 }
-
+ 
 const imageOnHoverDivs = document.querySelectorAll('.imageOnHoverDivs');
 imageOnHoverDivs.forEach(div => {
     // Add background image div
