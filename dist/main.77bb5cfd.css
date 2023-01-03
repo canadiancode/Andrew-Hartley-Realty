@@ -5,7 +5,7 @@
   --dark-accent-color: black;
   --transition-default: ease 0.4s;
   --transition-animation: all 1s;
-  --font-Helvetica: "Helvetica", serif;
+  --font-Helvetica: "Playfair Display", serif;
   --light-transparent-bg-color: rgba(255, 255, 255, 0.3);
   --dark-transparent-bg-color: rgba(20, 20, 20, 0.7);
   --border-radius: 5px;
@@ -61,6 +61,12 @@ h1, h2, h3, h4, p {
     flex-direction: column;
     padding-bottom: 2em;
     border-bottom: 2px solid var(--light-accent-color);
+  }
+  .desktop-header .desktop-header-left .businessName {
+    height: 60px;
+  }
+  .desktop-header .desktop-header-left .businessLogo {
+    font-size: 20px;
   }
 }
 .desktop-header .desktop-header-left .headerLogoLink {
@@ -155,7 +161,7 @@ h1, h2, h3, h4, p {
     justify-content: center;
     margin: 0 auto;
     margin-top: 1.3em;
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 .desktop-header .headerSocialLinks {
@@ -276,8 +282,10 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 }
 .AutoPlayVideo-Section .sectionTextDiv .sectionText {
   opacity: 0;
-  transition: var(--transition-animation);
   transform: translateY(-0.5em);
+}
+.AutoPlayVideo-Section .sectionTextDiv .heroHeadingText {
+  animation: heroTextAnimation 3s infinite;
 }
 .AutoPlayVideo-Section .sectionTextDiv .sectionSubText {
   font-size: 1.5em;
@@ -322,6 +330,28 @@ html:not([data-scroll="0"]) .headerSocialLinks {
   }
 }
 
+@keyframes heroTextAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-1em);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(0em);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(0em);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1em);
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
 .ImagesTextPanel-Section {
   height: 100%;
   width: 100%;
@@ -405,23 +435,25 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 }
 
 .RightImageLeftText-Section {
-  margin: 6em 0em 2em 0em;
-  padding: 1em;
+  padding: 5em 4em;
   display: grid;
   grid-gap: 0em;
+  max-width: 1100px;
+  margin: 0 auto;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
 }
 @media only screen and (max-width: 900px) {
   .RightImageLeftText-Section {
     display: block;
+    padding: 5em 0em;
   }
 }
 .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
   border: solid 1px var(--light-accent-color);
   border-radius: var(--border-radius);
-  margin: 20% -5% 20% 10%;
-  padding: 20% 10% 10% 10%;
+  margin: 1em -5% 1em 2em;
+  padding: 3em 2em 2em 2em;
   box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
   background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
   transform: translateX(25em);
@@ -430,7 +462,7 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 }
 @media only screen and (max-width: 900px) {
   .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
-    padding: 8% 10% 10% 10%;
+    padding: 1em 2em;
     transform: translateX(0em);
     filter: blur(0em);
   }
@@ -469,8 +501,17 @@ html:not([data-scroll="0"]) .headerSocialLinks {
 .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv {
   z-index: 2;
 }
+@media screen and (max-width: 900px) {
+  .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
 .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv .leftImageRightTextImageImageEl {
-  width: 100%;
+  width: auto;
+  height: 80vh;
+  margin: 0 auto;
   padding: 0%;
   box-shadow: 2px 2px 13px 2px var(--dark-accent-color);
   border-radius: var(--border-radius);

@@ -302,7 +302,7 @@ storeScroll(); // Main Container Section
 var AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
 var AutoPlayVideoSecText = 'Welcome to';
 var AutoPlayVideoMainText = 'Andrew Hartley Realty';
-var AutoPlayVideoSubText = 'Herbert Banker Realty';
+var AutoPlayVideoSubText = 'with Herbert Banker Realty';
 var AutoPlayVideoButtonTitle = 'Search All Homes';
 var AutoPlayVideoButtonURL = '#'; // Auto-Play Video Section - video Output
 
@@ -322,6 +322,7 @@ var mainTextEl = document.createElement('h1');
 var secTextEl = document.createElement('p');
 var subTextEl = document.createElement('p');
 mainTextEl.classList.add('sectionText');
+mainTextEl.classList.add('heroHeadingText');
 secTextEl.classList.add('sectionText');
 subTextEl.classList.add('sectionSubText');
 secTextEl.appendChild(document.createTextNode(AutoPlayVideoSecText));
@@ -352,7 +353,43 @@ var autoplayVideoObserver = new IntersectionObserver(function (entries) {
 var autoPlayVideohiddenElements = document.querySelectorAll('.sectionText');
 autoPlayVideohiddenElements.forEach(function (el) {
   return autoplayVideoObserver.observe(el);
-}); // Images and Text Panel --Section
+}); // Change heading every 3 seconds
+
+var headings = ['Hello', 'Hi', 'Ye'];
+var i = 0;
+var intervalId = setInterval(function () {
+  document.getElementById('heading').innerHTML = headings[i];
+
+  if (i == headings.length - 1) {
+    i = 0; //you can even clear interval here to make heading stay as last one in array
+    //cleanInterval(intervalId);
+  } else {
+    i++;
+  }
+}, 4000);
+var heroHeadings = ['Andrew Hartley Realty', 'Luxury Living', 'Exquisite Client Care', 'Your Next Home'];
+var z = 0;
+var heroInterval = setInterval(function () {
+  mainTextEl.innerHTML = heroHeadings[z];
+
+  if (z == heroHeadings.length - 1) {
+    z = 0;
+  } else {
+    z++;
+  }
+}, 3000);
+var headingOptions = {
+  rootMargin: "0px",
+  threshold: 0
+};
+var heroHeadingObserver = new IntersectionObserver(function (entries, heroHeadingObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      console.log('changed');
+    }
+  });
+}, headingOptions);
+heroHeadingObserver.observe(mainTextEl); // Images and Text Panel --Section
 // Images and Text Panel Section Variables
 
 var imageTextPanelTitle = 'Explore Andrew Hartley Realty';
@@ -412,8 +449,6 @@ var imageTextPanelDivObserver = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
-    } else {
-      entry.target.classList.remove('show');
     }
   });
 });
@@ -471,8 +506,6 @@ var singleImagewithTextDivOberver = new IntersectionObserver(function (entries) 
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
-    } else {
-      entry.target.classList.remove('show');
     }
   });
 });
@@ -587,23 +620,26 @@ imageOnHoverDivs.forEach(function (div) {
   imageOnHoverButtonLinks.appendChild(imageOnHoverButton);
 });
 
-for (var z = 0; z < imageZoomOnHoverURLs.length; z++) {
+for (var _z = 0; _z < imageZoomOnHoverURLs.length; _z++) {
   // adding the background URL 
   var imageOnHoverBackgroundDiv = document.querySelectorAll('.imageOnHoverBackgroundDivs');
-  var imageZoomOnHoverURL = imageZoomOnHoverURLs[z].URL;
-  imageOnHoverBackgroundDiv[z].style.background = "url('" + imageZoomOnHoverURL + "')";
-  imageOnHoverBackgroundDiv[z].style.backgroundSize = 'cover'; // Adding the text to the text element
+  var imageZoomOnHoverURL = imageZoomOnHoverURLs[_z].URL;
+  imageOnHoverBackgroundDiv[_z].style.background = "url('" + imageZoomOnHoverURL + "')";
+  imageOnHoverBackgroundDiv[_z].style.backgroundSize = 'cover'; // Adding the text to the text element
 
-  var imageZoomOnHoverText = imageZoomOnHoverURLs[z].Text;
+  var imageZoomOnHoverText = imageZoomOnHoverURLs[_z].Text;
   var imageOnZoomHoverTextEl = document.querySelectorAll('.imageOnHoverMainText');
-  imageOnZoomHoverTextEl[z].appendChild(document.createTextNode(imageZoomOnHoverText)); // adding the link to the button
+
+  imageOnZoomHoverTextEl[_z].appendChild(document.createTextNode(imageZoomOnHoverText)); // adding the link to the button
+
 
   var imageOnHoverButtonLinks = document.querySelectorAll('.imageOnHoverButtonLinks');
-  imageOnHoverButtonLinks[z].href = imageZoomOnHoverURLs[z].href; // Adding the text to the button element
+  imageOnHoverButtonLinks[_z].href = imageZoomOnHoverURLs[_z].href; // Adding the text to the button element
 
   var imageZoomOnHoverButtonText = imageZoomOnHoverButtonTexts;
   var imageZoomOnHoverButtonEl = document.querySelectorAll('.imageOnHoverButton');
-  imageZoomOnHoverButtonEl[z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
+
+  imageZoomOnHoverButtonEl[_z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
 }
 
 ; // Contact CTA and Email Submission --Section
@@ -789,7 +825,30 @@ document.addEventListener('DOMContentLoaded', function (e) {
       headerSocialLinks.style.paddingTop = '12%';
     }
   });
-});
+}); // Code for the headshot parallax scroll animation
+
+var headShotOptions = {
+  rootMargin: "0px",
+  threshold: 0.5
+};
+var headShotObserver = new IntersectionObserver(function (entries, headShotObserver) {
+  entries.forEach(function (entry) {
+    function headShotScrollAnimation() {
+      var windowHeight = window.innerHeight;
+      var photoRect = leftImageRightTextImageImageEl.getBoundingClientRect();
+      var photoPosition = photoRect.y;
+      var parallaxValue = -1 * (photoPosition - windowHeight) / 10;
+      leftImageRightTextImageImageEl.style.transform = "translateY(".concat(parallaxValue, "px)");
+    }
+
+    if (entry.isIntersecting) {
+      document.addEventListener('scroll', headShotScrollAnimation);
+    } else {
+      document.removeEventListener('scroll', headShotScrollAnimation);
+    }
+  });
+}, headShotOptions);
+headShotObserver.observe(leftImageRightTextImageImageEl);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -818,7 +877,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55991" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55446" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -206,7 +206,7 @@ window.onresize = desktopWindowResize;
     const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
     const AutoPlayVideoSecText = 'Welcome to';
     const AutoPlayVideoMainText = 'Andrew Hartley Realty';
-    const AutoPlayVideoSubText = 'Herbert Banker Realty';
+    const AutoPlayVideoSubText = 'with Herbert Banker Realty';
     const AutoPlayVideoButtonTitle = 'Search All Homes';
     const AutoPlayVideoButtonURL = '#';
 
@@ -228,6 +228,7 @@ window.onresize = desktopWindowResize;
     const secTextEl = document.createElement('p');
     const subTextEl = document.createElement('p');
     mainTextEl.classList.add('sectionText');
+    mainTextEl.classList.add('heroHeadingText');
     secTextEl.classList.add('sectionText');
     subTextEl.classList.add('sectionSubText');
     secTextEl.appendChild(document.createTextNode(AutoPlayVideoSecText));
@@ -262,6 +263,51 @@ window.onresize = desktopWindowResize;
     autoPlayVideohiddenElements.forEach((el) => autoplayVideoObserver.observe(el));
 
     
+// Change heading every 3 seconds
+var headings = ['Hello', 'Hi', 'Ye'];
+var i = 0;
+var intervalId = setInterval(function() {
+  document.getElementById('heading').innerHTML = headings[i];
+  if (i == (headings.length - 1)) {
+    i = 0;
+    //you can even clear interval here to make heading stay as last one in array
+    //cleanInterval(intervalId);
+
+  } else {
+    i++;
+  }
+}, 4000)
+
+
+let heroHeadings = ['Andrew Hartley Realty', 'Luxury Living', 'Exquisite Client Care', 'Your Next Home'];
+let z = 0;
+
+let heroInterval = setInterval(function() {
+
+    mainTextEl.innerHTML = heroHeadings[z];
+
+    if (z == (heroHeadings.length - 1)) {
+        z = 0;
+    } else {
+        z++;
+    }
+
+}, 3000);
+
+const headingOptions = {
+    rootMargin: "0px",
+    threshold: 0
+};
+
+const heroHeadingObserver = new IntersectionObserver(function(entries, heroHeadingObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            console.log('changed');
+        }
+    });
+}, headingOptions);
+
+heroHeadingObserver.observe(mainTextEl);
 
 // Images and Text Panel --Section
     // Images and Text Panel Section Variables
@@ -335,8 +381,6 @@ window.onresize = desktopWindowResize;
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
             }
         });
     });
@@ -402,8 +446,6 @@ const singleImagewithTextDivOberver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
         }
     });
 });
@@ -770,3 +812,32 @@ document.addEventListener('DOMContentLoaded', function(e) {
         }
     });
 });
+
+
+// Code for the headshot parallax scroll animation
+
+const headShotOptions = {
+    rootMargin: "0px",
+    threshold: 0.5
+}
+
+const headShotObserver = new IntersectionObserver(function(entries, headShotObserver) {
+    entries.forEach(entry => {
+        
+        function headShotScrollAnimation() {
+            const windowHeight = window.innerHeight;
+            const photoRect = leftImageRightTextImageImageEl.getBoundingClientRect();
+            const photoPosition = photoRect.y;
+            const parallaxValue = (-1 * (photoPosition - windowHeight)) / 10;
+            leftImageRightTextImageImageEl.style.transform = `translateY(${parallaxValue}px)`;
+        }
+        
+        if (entry.isIntersecting) {
+            document.addEventListener('scroll', headShotScrollAnimation);
+        } else {
+            document.removeEventListener('scroll', headShotScrollAnimation);
+        }
+    });
+}, headShotOptions);
+
+headShotObserver.observe(leftImageRightTextImageImageEl);
