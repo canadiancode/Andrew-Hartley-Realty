@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Title of Website -->
+    <title>Andrew Hartley Realty</title>
+
+    <!-- Favicon Src -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah.png?v=1660852500">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+
+    <style>
+        :root {
+        --dark-bg-color: #363535;
+        --light-bg-color: rgb(153, 151, 151);
+        --light-accent-color: white;
+        --dark-accent-color: black;
+        --transition-default: ease 0.4s;
+        --transition-animation: all 1s;
+        --font-Helvetica: "Playfair Display", serif;
+        --light-transparent-bg-color: rgba(255, 255, 255, 0.3);
+        --dark-transparent-bg-color: rgba(20, 20, 20, 0.7);
+        --border-radius: 5px;
+        }
+
+        html {
+        scroll-behavior: smooth;
+        }
+
+        body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: var(--light-accent-color);
+        }
+
+        h1, h2, h3, h4, p {
+        font-family: "Playfair Display", serif;
+        }
+
+        .desktop-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        z-index: 3;
+        background-color: var(--light-transparent-bg-color);
+        transition: var(--transition-default);
+        width: 98vw;
+        padding-left: 1em;
+        padding-right: 1em;
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header {
+            top: 0;
+            bottom: 0;
+            left: -90%;
+            width: 70%;
+            flex-direction: column;
+            justify-content: flex-start;
+            background: linear-gradient(180deg, var(--dark-bg-color), var(--dark-accent-color));
+            border-right: solid 1px var(--light-accent-color);
+            box-shadow: 1px 1px 10px 10px var(--dark-accent-color);
+        }
+        }
+        .desktop-header .desktop-header-left {
+        display: flex;
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .desktop-header-left {
+            flex-direction: column;
+            padding-bottom: 2em;
+            border-bottom: 2px solid var(--light-accent-color);
+        }
+        .desktop-header .desktop-header-left .businessName {
+            height: 60px;
+        }
+        .desktop-header .desktop-header-left .businessLogo {
+            font-size: 20px;
+        }
+        }
+        .desktop-header .desktop-header-left .headerLogoLink {
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        }
+        .desktop-header .desktop-header-left img {
+        padding: 0em 1em;
+        width: 100%;
+        max-width: 6em;
+        max-height: 6em;
+        }
+        @media only screen and (max-width: 1300px) {
+        .desktop-header .desktop-header-left img {
+            transform: scale(0.8);
+        }
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .desktop-header-left img {
+            flex-direction: column;
+            margin: 0 auto;
+            transform: scale(1);
+        }
+        }
+        .desktop-header .desktop-header-left h1 {
+        margin: 0;
+        align-self: center;
+        color: var(--light-accent-color);
+        }
+        @media only screen and (max-width: 1300px) {
+        .desktop-header .desktop-header-left h1 {
+            font-size: 1.5em;
+        }
+        }
+        @media only screen and (max-width: 950px) {
+        .desktop-header .desktop-header-left h1 {
+            font-size: auto;
+        }
+        }
+        .desktop-header .desktop-header-right {
+        display: flex;
+        overflow: initial;
+        padding-right: 1.2em;
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .desktop-header-right {
+            justify-content: center;
+            margin: 0 auto;
+            padding-right: 0em;
+        }
+        }
+        .desktop-header .desktop-header-right .headerMenuItems {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        padding: 0em;
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .desktop-header-right .headerMenuItems {
+            justify-content: center;
+            flex-direction: column;
+        }
+        }
+        .desktop-header .desktop-header-right .headerMenuItems .navItem {
+        cursor: pointer;
+        display: flex;
+        margin-left: 2em;
+        margin-right: 1em;
+        font-size: 1.2em;
+        font-family: var(--font-Helvetica);
+        font-weight: bolder;
+        color: var(--light-accent-color);
+        text-decoration: none;
+        }
+        .desktop-header .desktop-header-right .headerMenuItems .navItem:hover {
+        text-decoration: underline;
+        }
+        .desktop-header .desktop-header-right .headerMenuItems .navItem:focus {
+        text-decoration: underline;
+        }
+        @media only screen and (max-width: 1300px) {
+        .desktop-header .desktop-header-right .headerMenuItems .navItem {
+            margin-left: 1em;
+            margin-right: 0.5em;
+            font-size: 1em;
+        }
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .desktop-header-right .headerMenuItems .navItem {
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 1.3em;
+            font-size: 1em;
+        }
+        }
+        .desktop-header .headerSocialLinks {
+        position: absolute;
+        right: 1em;
+        display: flex;
+        flex-direction: column;
+        padding-top: 12%;
+        padding-right: 0.5em;
+        transform: translateX(5em);
+        transition-duration: 2s;
+        }
+        .desktop-header .headerSocialLinks .headerMobileSocialIconLink {
+        transition-duration: 3s;
+        }
+        @media only screen and (max-width: 900px) {
+        .desktop-header .headerSocialLinks {
+            position: relative;
+            display: grid;
+            grid-gap: 1.5em;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0 auto;
+            flex-direction: column;
+            padding-right: 0em;
+            transform: translateX(1em);
+        }
+        }
+
+        .mobileHeaderTab {
+        display: none;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 1em;
+        font-size: 1.7em;
+        z-index: 5;
+        transition: var(--transition-default);
+        pointer-events: none;
+        opacity: 0;
+        }
+        @media only screen and (max-width: 900px) {
+        .mobileHeaderTab {
+            display: block;
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        }
+
+        .crossOut {
+        display: none;
+        color: var(--light-accent-color);
+        transition: var(--transition-default);
+        text-shadow: -2px 2px var(--dark-accent-color);
+        }
+
+        .hamburger {
+        color: var(--light-accent-color);
+        text-shadow: -2px 2px var(--dark-accent-color);
+        transition: var(--transition-default);
+        }
+
+        html:not([data-scroll="0"]) .desktop-header {
+        background: linear-gradient(180deg, var(--dark-bg-color), var(--dark-accent-color));
+        box-shadow: 1px 1px 10px 10px var(--dark-accent-color);
+        }
+        html:not([data-scroll="0"]) .businessLogo {
+        text-shadow: 1px 1px 6px var(--light-bg-color);
+        }
+        html:not([data-scroll="0"]) .headerSocialLinks {
+        transform: translateX(0em);
+        }
+        @media only screen and (max-width: 900px) {
+        html:not([data-scroll="0"]) .headerSocialLinks {
+            transform: translateX(1em);
+        }
+        }
+
+        .AutoPlayVideo-Section {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        }
+        @media only screen and (max-width: 900px) {
+        .AutoPlayVideo-Section {
+            display: flex;
+            justify-content: center;
+        }
+        }
+        .AutoPlayVideo-Section .sectionTextDiv {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-self: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 1em;
+        z-index: 2;
+        overflow: hidden;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv h1, .AutoPlayVideo-Section .sectionTextDiv p {
+        margin: 0 auto;
+        margin-bottom: 0.5em;
+        margin-right: 0.5em;
+        margin-left: 0.5em;
+        color: var(--light-accent-color);
+        font-size: 2.5em;
+        overflow: hidden;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .sectionText {
+        opacity: 0;
+        transform: translateY(-0.5em);
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .heroHeadingText {
+        animation: heroTextAnimation 3s infinite;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .sectionSubText {
+        font-size: 1.5em;
+        margin-bottom: 1.7em;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .AutoPlayVideoButttonLink {
+        width: 190px;
+        height: 40px;
+        margin: 0 auto;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .AutoPlayVideoButttonLink .auto-Play-CTA {
+        width: 190px;
+        height: 40px;
+        margin: 0 auto;
+        outline: white solid 2px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: var(--light-accent-color);
+        transition: var(--transition-default);
+        font-weight: normal;
+        cursor: pointer;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .AutoPlayVideoButttonLink .auto-Play-CTA:hover {
+        background-color: var(--light-accent-color);
+        color: black;
+        font-weight: bold;
+        }
+        .AutoPlayVideo-Section .sectionTextDiv .show {
+        opacity: 1;
+        transform: translateY(0em);
+        }
+        .AutoPlayVideo-Section .video {
+        width: 100vw;
+        background-size: cover;
+        filter: brightness(30%);
+        box-shadow: 2px 2px 4px 1px var(--dark-accent-color);
+        }
+        @media only screen and (max-width: 900px) {
+        .AutoPlayVideo-Section .video {
+            width: auto;
+            height: 100vh;
+        }
+        }
+
+        @keyframes heroTextAnimation {
+        0% {
+            opacity: 0;
+            transform: translateX(-1em);
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        15% {
+            opacity: 1;
+            transform: translateX(0em);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        85% {
+            opacity: 1;
+            transform: translateX(0em);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(1em);
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        }
+        }
+        .ImagesTextPanel-Section {
+        height: 100%;
+        width: 100%;
+        }
+        .ImagesTextPanel-Section .imageTextPanelHeading {
+        width: 100%;
+        margin: 2em 0 2em 0;
+        text-align: center;
+        font-weight: lighter;
+        text-shadow: 1px 1px 3px var(--dark-accent-color);
+        }
+        .ImagesTextPanel-Section .panelContainer {
+        display: grid;
+        grid-gap: 1em;
+        padding: 1em;
+        max-width: 100em;
+        width: 80%;
+        justify-items: center;
+        margin: 0 auto;
+        grid-template-columns: repeat(4, 1fr);
+        }
+        @media only screen and (max-width: 1200px) {
+        .ImagesTextPanel-Section .panelContainer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+        @media only screen and (max-width: 700px) {
+        .ImagesTextPanel-Section .panelContainer {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        }
+        .ImagesTextPanel-Section .panelContainer .imageTextPanelLink {
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: var(--transition-animation);
+        transform: scale(0.8);
+        }
+        .ImagesTextPanel-Section .panelContainer .show {
+        opacity: 1;
+        transform: scale(1);
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs {
+        height: 25em;
+        position: relative;
+        width: 100%;
+        border-radius: var(--border-radius);
+        transition: var(--transition-default);
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs:hover {
+        filter: brightness(150%);
+        box-shadow: 2px 2px 4px 1px var(--dark-accent-color);
+        border-radius: var(--border-radius);
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs:hover .imageTextPanelText {
+        color: var(--dark-accent-color);
+        text-shadow: 0.00001em 0.00001em 0.5em var(--light-accent-color);
+        left: 7%;
+        bottom: 6%;
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs:hover .imageTextPanelText::after {
+        width: 100%;
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs .imageTextPanelText {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        transition: var(--transition-default);
+        color: var(--light-accent-color);
+        }
+        .ImagesTextPanel-Section .panelContainer .ImagesTextPanelDivs .imageTextPanelText::after {
+        content: "";
+        height: 2px;
+        background-color: var(--light-accent-color);
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        transition: var(--transition-default);
+        }
+
+        .RightImageLeftText-Section {
+        padding: 5em 4em;
+        display: grid;
+        grid-gap: 0em;
+        max-width: 1100px;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        overflow: hidden;
+        }
+        @media only screen and (max-width: 900px) {
+        .RightImageLeftText-Section {
+            display: block;
+            padding: 5em 0em;
+        }
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
+        border: solid 1px var(--light-accent-color);
+        border-radius: var(--border-radius);
+        margin: 1em -5% 1em 2em;
+        padding: 3em 2em 2em 2em;
+        box-shadow: 0px 0px 65px 20px var(--dark-accent-color);
+        background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+        transform: translateX(25em);
+        transition: var(--transition-animation);
+        filter: blur(0.3em);
+        }
+        @media only screen and (max-width: 900px) {
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv {
+            padding: 1em 2em;
+            transform: translateX(0em);
+            filter: blur(0em);
+        }
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h1, .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h3, .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv p {
+        max-width: 30em;
+        margin-bottom: 2em;
+        line-height: 200%;
+        color: var(--light-accent-color);
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv h1 {
+        text-shadow: 1px 1px 2px var(--light-accent-color);
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv .leftImageRightTextImageButton {
+        width: 190px;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 3em;
+        outline: white solid 2px;
+        background-color: var(--dark-accent-color);
+        border: 1px solid var(--light-accent-color);
+        color: var(--light-accent-color);
+        transition: var(--transition-default);
+        font-weight: normal;
+        cursor: pointer;
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionLeftSideDiv .leftImageRightTextImageButton:hover {
+        background-color: var(--light-accent-color);
+        color: var(--dark-accent-color);
+        font-weight: bold;
+        }
+        .RightImageLeftText-Section .show {
+        transform: translateX(0em);
+        filter: blur(0);
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv {
+        z-index: 2;
+        }
+        @media screen and (max-width: 900px) {
+        .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        }
+        .RightImageLeftText-Section .LeftImageRightTextSectionRightSideDiv .leftImageRightTextImageImageEl {
+        width: auto;
+        height: 80vh;
+        margin: 0 auto;
+        padding: 0%;
+        box-shadow: 2px 2px 13px 2px var(--dark-accent-color);
+        border-radius: var(--border-radius);
+        }
+
+        .OnlyTextPanelTestimonial-Section {
+        width: 100%;
+        height: 100%;
+        margin: 4em auto 4em auto;
+        display: grid;
+        grid-gap: 1em;
+        background-color: var(--light-transparent-bg-color);
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialHeaderEl {
+        color: var(--dark-accent-color);
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        font-weight: lighter;
+        text-shadow: 1px 1px 2px var(--dark-accent-color);
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv {
+        margin: 1em 2em;
+        border: 1px solid var(--light-bg-color);
+        box-shadow: 6px 6px 8px #b8b8b8, -6px -6px 8px var(--light-accent-color);
+        border-radius: var(--border-radius);
+        transition: var(--transition-default);
+        max-width: 32em;
+        background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+        position: relative;
+        transform: scale(0.8);
+        transition: var(--transition-animation);
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv:hover {
+        box-shadow: 3px 4px 8px 0px var(--dark-accent-color);
+        transform: scale(1.04);
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialtextEl {
+        transition: var(--transition-default);
+        margin-bottom: 2em;
+        font-size: larger;
+        line-height: 200%;
+        color: var(--light-accent-color);
+        margin: 1em;
+        margin-bottom: 4em;
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialtextDiv .onlyTextpanelTestimonialSignatureEl {
+        color: var(--light-accent-color);
+        position: absolute;
+        bottom: 7%;
+        margin: 0 auto;
+        width: 100%;
+        text-shadow: 1px 1px 2px var(--light-accent-color);
+        }
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialDivEl {
+        height: 100%;
+        width: 90%;
+        text-align: center;
+        color: var(--dark-accent-color);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0em;
+        min-height: 10em;
+        margin: 0 auto;
+        justify-items: center;
+        }
+        @media only screen and (max-width: 900px) {
+        .OnlyTextPanelTestimonial-Section .onlyTextpanelTestimonialDivEl {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        }
+        .OnlyTextPanelTestimonial-Section .show {
+        transform: scale(1);
+        }
+
+        .ImagesZoomOnHover-Section {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0em;
+        }
+        @media only screen and (max-width: 1000px) {
+        .ImagesZoomOnHover-Section {
+            grid-template-columns: repeat(1, 1fr);
+            height: 150vh;
+        }
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        transition: var(--transition-default);
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs:hover .imageOnHoverBackgroundDivs {
+        transform: scale(1.15);
+        filter: brightness(50%);
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs:hover .imageOnHoverButton {
+        transform: translateY(0em);
+        opacity: 100;
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverBackgroundDivs {
+        height: 100%;
+        width: 100%;
+        background-size: auto;
+        background-position: bottom;
+        transition: var(--transition-default);
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverMainText {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        left: 0%;
+        margin: 0 auto;
+        font-size: 2em;
+        text-align: center;
+        width: 35%;
+        color: var(--light-accent-color);
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: var(--border-radius);
+        }
+        @media only screen and (max-width: 1000px) {
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverMainText {
+            width: 40%;
+            min-width: 220px;
+        }
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverButton {
+        position: absolute;
+        top: 60%;
+        right: 0%;
+        left: 0%;
+        margin: 0 auto;
+        font-size: 1em;
+        text-align: center;
+        width: 190px;
+        height: 40px;
+        margin-top: 3em;
+        outline: white solid 2px;
+        background-color: var(--dark-accent-color);
+        border: 1px solid var(--light-accent-color);
+        color: var(--light-accent-color);
+        font-weight: normal;
+        cursor: pointer;
+        transition: var(--transition-default);
+        transform: translateY(42px);
+        opacity: 0;
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverButton:hover {
+        background-color: var(--light-accent-color);
+        color: var(--dark-accent-color);
+        font-weight: bold;
+        }
+        .ImagesZoomOnHover-Section .imageOnHoverDivs .imageOnHoverButtonLinks {
+        height: 100%;
+        width: 100%;
+        }
+
+        .ContactCTAEmailSubmission-Section {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-gap: 0em;
+        grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 900px) {
+        .ContactCTAEmailSubmission-Section {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv {
+        text-align: left;
+        align-self: center;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h3, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv p, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h3, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
+        color: var(--light-accent-color);
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h1, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1 {
+        text-shadow: 1px 1px 2px var(--light-accent-color);
+        }
+        @media screen and (max-width: 900px) {
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv, .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv {
+            margin: 0 auto;
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv {
+        background-color: var(--dark-transparent-bg-color);
+        border: none;
+        box-shadow: inset 0.8em 0em 15px 15px var(--dark-accent-color);
+        z-index: 2;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
+        @media screen and (max-width: 900px) {
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv {
+            box-shadow: inset 0em 0.8em 15px 15px var(--dark-accent-color);
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5em;
+        text-shadow: 1px 1px 2px var(--light-accent-color);
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv p {
+        max-width: 50%;
+        margin: 0 auto;
+        margin-bottom: 2em;
+        line-height: 200%;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv a {
+        width: 190px;
+        height: 40px;
+        margin: 0 auto;
+        margin-bottom: 3em;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv button {
+        margin-bottom: 3em;
+        height: 100%;
+        width: 100%;
+        outline: white solid 2px;
+        background-color: var(--dark-accent-color);
+        border: 1px solid var(--light-accent-color);
+        color: var(--light-accent-color);
+        transition: var(--transition-default);
+        font-weight: normal;
+        cursor: pointer;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionLeftDiv button:hover {
+        background-color: var(--light-accent-color);
+        color: var(--dark-accent-color);
+        font-weight: bold;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv {
+        border: 1px solid var(--light-accent-color);
+        border-left: none;
+        box-shadow: inset -0.8em 0em 15px 15px var(--dark-accent-color);
+        padding-left: 5em;
+        background-color: var(--dark-transparent-bg-color);
+        justify-content: left;
+        max-width: 40em;
+        margin-right: 2em;
+        }
+        @media screen and (max-width: 900px) {
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv {
+            margin: 0 auto;
+            border: none;
+            box-shadow: inset 0em -0.8em 15px 15px var(--dark-accent-color);
+            text-align: center;
+            padding-left: 0em;
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv h1 {
+        margin-top: 1em;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
+        margin: 1em 6em 2em 0em;
+        line-height: 200%;
+        }
+        @media screen and (max-width: 900px) {
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv p {
+            margin: 0 auto;
+            margin-bottom: 2em;
+            max-width: 80%;
+            text-align: center;
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form {
+        margin-bottom: 2em;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form input {
+        height: 2.4em;
+        width: 16em;
+        border: 1px solid var(--dark-accent-color);
+        border-radius: var(--border-radius);
+        }
+        @media only screen and (max-width: 400px) {
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv form input {
+            width: 12em;
+        }
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a {
+        margin: 0 auto;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a button {
+        margin-bottom: 3em;
+        width: 150px;
+        height: 30px;
+        outline: white solid 2px;
+        background-color: var(--light-accent-color);
+        border: 1px solid var(--dark-accent-color);
+        color: var(--dark-accent-color);
+        transition: var(--transition-default);
+        font-weight: normal;
+        cursor: pointer;
+        margin-left: 5px;
+        }
+        .ContactCTAEmailSubmission-Section .ContactCTAEmailSubmissionRightDiv a button:hover {
+        background-color: var(--dark-accent-color);
+        border: 1px solid var(--light-accent-color);
+        color: var(--light-accent-color);
+        font-weight: bold;
+        }
+
+        .footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+        background: linear-gradient(45deg, var(--dark-accent-color), var(--dark-bg-color));
+        padding: 2em 15%;
+        margin: 0;
+        overflow-x: hidden;
+        }
+        @media only screen and (max-width: 900px) {
+        .footer {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+        }
+        .footer .footerMenuTextLinkDiv {
+        max-width: 9em;
+        padding: 2em;
+        display: grid;
+        grid-gap: 2.2em;
+        grid-template-columns: repeat(1, 1fr);
+        }
+        @media only screen and (max-width: 900px) {
+        .footer .footerMenuTextLinkDiv {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 100%;
+            justify-items: center;
+        }
+        }
+        .footer .footerMenuTextLinkDiv h3 {
+        margin: 0;
+        color: var(--light-accent-color);
+        text-shadow: 1px 1px 2px var(--light-accent-color);
+        grid-column-start: 1;
+        grid-column-end: 1;
+        }
+        @media only screen and (max-width: 900px) {
+        .footer .footerMenuTextLinkDiv h3 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        }
+        .footer .footerMenuTextLinkDiv a {
+        text-decoration: none;
+        margin: 0;
+        width: max-content;
+        }
+        .footer .footerMenuTextLinkDiv a:hover {
+        text-decoration: underline white;
+        }
+        .footer .footerMenuTextLinkDiv a p {
+        color: var(--light-accent-color);
+        text-decoration: none;
+        margin: 0;
+        }
+        .footer .footerMenuMapDiv {
+        height: 100%;
+        }
+        .footer .footerMenuMapDiv .footerMenuMapIframe {
+        height: 100%;
+        width: 100%;
+        }
+        @media only screen and (max-width: 300px) {
+        .footer .footerMenuMapDiv .footerMenuMapIframe {
+            width: 90%;
+        }
+        }
+        .footer .footerMenuContactInfo {
+        max-width: 15em;
+        margin: 2em;
+        display: grid;
+        grid-gap: 0em;
+        }
+        @media only screen and (max-width: 900px) {
+        .footer .footerMenuContactInfo {
+            margin: 3em 0 auto;
+            max-width: 100%;
+        }
+        }
+        .footer .footerMenuContactInfo h3 {
+        margin: 0;
+        color: var(--light-accent-color);
+        text-shadow: 1px 1px 2px var(--dark-accent-color);
+        }
+        .footer .footerMenuContactInfo p {
+        color: var(--light-accent-color);
+        text-decoration: none;
+        margin: 0;
+        }
+        .footer .footerMenuContactInfo .footerMenuTextTitle {
+        margin-top: 2em;
+        text-decoration: underline;
+        }
+        .footer .devanadaSignatureEl {
+        color: var(--light-accent-color);
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin: 0.5em auto;
+        font-size: 1em;
+        margin: 3em 0em;
+        text-align: center;
+        font-style: italic;
+        }
+
+        /*# sourceMappingURL=/main.77bb5cfd.css.map */
+
+    </style>
+
+</head>
+<body>
+    <!-- Header section -->
+    <div class="mobileHeaderTab hamburger">☰</div>
+    <div class="mobileHeaderTab crossOut">✖</div>
+    <header class="desktop-header">
+        <div class="desktop-header-left"></div>
+        <div class="desktop-header-right"></div>
+    </header>
+    
+    <!-- Website Content -->
+    <container class="mainContainer">
+
+        <!-- Auto-Play Video --Section  -->
+        <div class="AutoPlayVideo-Section">
+            <div class="sectionTextDiv"></div>
+        </div>
+
+        <!--Images and Text Panel --Section  -->
+        <div class="ImagesTextPanel-Section">
+            <div class="panelContainer"></div>
+        </div>
+
+        <!-- Right Image Left Text --Section -->
+        <div class="RightImageLeftText-Section">
+        </div>
+
+        <!-- Only Text Testimonial --Section -->
+        <div class="OnlyTextPanelTestimonial-Section">
+        </div>
+
+        <!-- Images zoom on hover --Section -->
+        <div class="ImagesZoomOnHover-Section">
+        </div>
+
+        <!-- Contact Us CTA and email submission --Section -->
+        <div class="ContactCTAEmailSubmission-Section">
+        </div>
+
+    </container>
+    
+    <!-- Footer section -->
+    <footer class="footer"></footer>
+
+    <script>
+        // Find the top of each section using --Section
+
+        // Variables for Social Platforms
+        const headerMobileSocialIcons = [
+            //Facebook
+            {
+                Link: 'https://www.facebook.com/',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-facebook-48.png?v=1663738855'
+            },    
+            //Instagram
+            {
+                Link: 'https://www.instagram.com',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-instagram-48.png?v=1663738854'
+            //Twitter
+            },
+            {
+                Link: 'https://twitter.com/',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-twitter-squared-48.png?v=1663738814'
+            },    
+            // LinkedIn
+            {
+                Link: 'https://linkedin.com',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-linkedin-48.png?v=1663738620'
+            },    
+            // YouTube
+            {
+                Link: 'https://www.youtube.com/',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-youtube-48.png?v=1663738815'
+            },
+            // TikTok
+            {
+                Link: 'https://www.tiktok.com/',
+                Icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-tiktok-48.png?v=1663738843'
+            }    
+        ];
+
+        // Desktop Header --Section
+            // variables for header
+        const businessNameVar = "Andrew Hartley Realty";
+        const logoSrc = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Ah_7d819f18-2c11-4e01-a30e-49b1d6d06afa.png?v=1660973154';
+        const logoAlt = 'Andrew Hartley Realty Logo';
+        const headerMenuList = [
+            {
+                title: 'Home',
+                href: '#',
+            },
+            {
+                title: 'About',
+                href: '/#about',  //Find the ID input using --id
+            },
+            {
+                title: 'Our Properties',
+                href: '/#ourproperties', //Find the ID input using --id
+            },
+            {
+                title: 'Contact',
+                href: '/#contact', //Find the ID input using --id
+            }
+        ];
+
+        // Desktop Header Section - Output onto DOM
+            // left side
+        const desktopHeaderLeft = document.querySelector('.desktop-header-left');
+
+        const headerLogoLink = document.createElement('a');
+        const headerLogo = document.createElement('img');
+        headerLogoLink.classList.add('headerLogoLink');
+        headerLogo.classList.add('businessName');
+        headerLogoLink.href = headerMenuList[0].href;
+        headerLogo.src = logoSrc;
+        headerLogo.alt = logoAlt;
+        headerLogoLink.appendChild(headerLogo);
+        desktopHeaderLeft.appendChild(headerLogoLink);
+
+        const HeaderBusinessName = document.createElement('h1');
+        HeaderBusinessName.classList.add('businessLogo');
+        HeaderBusinessName.appendChild(document.createTextNode(businessNameVar));
+        desktopHeaderLeft.appendChild(HeaderBusinessName);
+
+            // right side
+        const desktopHeaderRight = document.querySelector('.desktop-header-right');
+
+        const headerMenuItems = document.createElement('ul');
+        headerMenuItems.classList.add('headerMenuItems');
+        desktopHeaderRight.appendChild(headerMenuItems);
+
+        headerMenuList.forEach(menuItem => {
+            // adding the menu items
+            const link = document.createElement('a');
+            link.classList.add('navItem');
+            link.href = menuItem.href;
+            const linkName = menuItem.title;
+            headerMenuItems.appendChild(link);
+            link.appendChild(document.createTextNode(linkName.toUpperCase()));
+        });
+
+        // Mobile Header Section - Output onto DOM
+        const hamburgerIcon = document.querySelector('.mobileHeaderTab');
+        const headerDiv = document.querySelector('.desktop-header');
+        const crossOut = document.querySelector('.crossOut');
+        const hamburger = document.querySelector('.hamburger');
+        const mainContent = document.querySelector('.mainContainer');
+
+        // the social media icons and links 
+        const headerSocialLinks = document.createElement('div');
+        headerSocialLinks.classList.add('headerSocialLinks');
+        headerDiv.appendChild(headerSocialLinks);
+            // for the icon output onto the DOM
+        headerMobileSocialIcons.forEach(social => {
+            const  headerMobileSocialIconLink = document.createElement('a');
+            headerMobileSocialIconLink.classList.add('headerMobileSocialIconLink');
+            const headerMobileSocialIconImgEl = document.createElement('img');
+            headerMobileSocialIconImgEl.classList.add('headerMobileSocialIconImgEl');
+            headerMobileSocialIconLink.appendChild(headerMobileSocialIconImgEl);
+            const headerMobileSocialIconImgSrc = social.Link;
+            headerMobileSocialIconImgEl.src = social.Icon;
+            headerMobileSocialIconLink.href = headerMobileSocialIconImgSrc;
+            headerSocialLinks.appendChild(headerMobileSocialIconLink);
+        });
+
+        const headermenuItem = document.querySelectorAll('.navItem');
+        headermenuItem.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 900) {
+                    headerDiv.style.left = '-90%'; 
+                    hamburger.style.display = 'block';
+                    crossOut.style.display = 'none';
+                }
+            })
+        });
+
+        // Open menu function
+        hamburger.addEventListener('click', function(e) {
+            headerDiv.style.left = '0%';
+            hamburger.style.display = 'none';
+            crossOut.style.display = 'block';
+        });
+
+        // close menu function
+        crossOut.addEventListener('click', function(e) {
+            headerDiv.style.left = '-90%';
+            crossOut.style.display = 'none';
+            hamburger.style.display = 'block';
+        });
+        mainContent.addEventListener('click', function(e) {
+            
+            if (window.innerWidth < 900) {
+                headerDiv.style.left = '-90%';
+                crossOut.style.display = 'none';
+                hamburger.style.display = 'block';
+            }
+        });
+
+        // Resizing adjustment
+        function desktopWindowResize() {
+            if (window.innerWidth > 900) {
+                headerDiv.style.left = '0%';
+                hamburger.style.display = 'none';
+                crossOut.style.display = 'block';
+            } else if (window.innerWidth < 900) {
+                headerDiv.style.left = '-90%';
+                crossOut.style.display = 'none';
+                hamburger.style.display = 'block';
+            }
+        }
+        window.onresize = desktopWindowResize;
+
+        // Scroll affect for header
+        // The debounce function receives our function as a parameter
+        const debounce = (fn) => {
+            // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+            let frame;
+
+            // The debounce function returns a new function that can receive a variable number of arguments
+            return (...params) => {
+            
+            // If the frame variable has been defined, clear it now, and queue for next frame
+            if (frame) { 
+                cancelAnimationFrame(frame);
+            }
+        
+            // Queue our function call for the next frame
+            frame = requestAnimationFrame(() => {
+                
+                // Call our function and pass any params we received
+                fn(...params);
+            });
+            } 
+        };
+        
+        // Reads out the scroll position and stores it in the data attribute so we can use it in our stylesheets
+        const storeScroll = () => {
+            document.documentElement.dataset.scroll = window.scrollY;
+        }
+        
+        // Listen for new scroll events, here we debounce our `storeScroll` function
+        document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+        
+        // Update scroll position for first time
+        storeScroll();
+
+        // Main Container Section
+            
+        // Auto-Play Video --Section
+            // Auto-Play Video Section Variables
+            const AutoPlayVideoSourceURL = 'https://cdn.shopify.com/videos/c/o/v/0849338fcc9b4f2091ffbd4f9ba069dd.mp4';
+            const AutoPlayVideoSecText = 'Welcome to';
+            const AutoPlayVideoMainText = 'Andrew Hartley Realty';
+            const AutoPlayVideoSubText = 'with Herbert Banker Realty';
+            const AutoPlayVideoButtonTitle = 'Search All Homes';
+            const AutoPlayVideoButtonURL = '#';
+
+            // Auto-Play Video Section - video Output
+            const AutoPlayVideoSection = document.querySelector('.AutoPlayVideo-Section');
+            const AutoPlayVideovideoEl = document.createElement('video');
+            const AutoPlayVideoSource = document.createElement('source');
+            AutoPlayVideoSource.src = AutoPlayVideoSourceURL;
+            AutoPlayVideovideoEl.muted = true;
+            AutoPlayVideovideoEl.loop = true;
+            AutoPlayVideovideoEl.autoplay = true;
+            AutoPlayVideovideoEl.classList.add('video');
+            AutoPlayVideovideoEl.appendChild(AutoPlayVideoSource);
+            AutoPlayVideoSection.appendChild(AutoPlayVideovideoEl);
+
+            // Auto-Play Video Section - text Output
+            const AutoPlayVideoTextDiv =  document.querySelector('.sectionTextDiv');
+            const mainTextEl = document.createElement('h1');
+            const secTextEl = document.createElement('p');
+            const subTextEl = document.createElement('p');
+            mainTextEl.classList.add('sectionText');
+            mainTextEl.classList.add('heroHeadingText');
+            secTextEl.classList.add('sectionText');
+            subTextEl.classList.add('sectionSubText');
+            secTextEl.appendChild(document.createTextNode(AutoPlayVideoSecText));
+            AutoPlayVideoTextDiv.appendChild(secTextEl);
+            mainTextEl.appendChild(document.createTextNode(AutoPlayVideoMainText));
+            AutoPlayVideoTextDiv.appendChild(mainTextEl);
+            subTextEl.appendChild(document.createTextNode(AutoPlayVideoSubText));
+            AutoPlayVideoTextDiv.appendChild(subTextEl);
+
+
+            // Call-To-Action button
+            const AutoPlayVideoButton = document.createElement('button');
+            AutoPlayVideoButton.classList.add('auto-Play-CTA');
+            const AutoPlayVideoButttonLink = document.createElement('a');
+            AutoPlayVideoButttonLink.classList.add('AutoPlayVideoButttonLink');
+            AutoPlayVideoButttonLink.href = AutoPlayVideoButtonURL;
+            AutoPlayVideoButton.appendChild(document.createTextNode(AutoPlayVideoButtonTitle.toUpperCase()));
+            AutoPlayVideoButttonLink.appendChild(AutoPlayVideoButton);
+            AutoPlayVideoTextDiv.appendChild(AutoPlayVideoButttonLink);
+            
+            // Pop-up animation on page load for autoplay video section
+            const autoplayVideoObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        entry.target.classList.remove('show');
+                    }
+                });
+            });
+            const autoPlayVideohiddenElements = document.querySelectorAll('.sectionText');
+            autoPlayVideohiddenElements.forEach((el) => autoplayVideoObserver.observe(el));
+
+            
+        // Change heading every 3 seconds
+        var headings = ['Hello', 'Hi', 'Ye'];
+        var i = 0;
+        var intervalId = setInterval(function() {
+        document.getElementById('heading').innerHTML = headings[i];
+        if (i == (headings.length - 1)) {
+            i = 0;
+            //you can even clear interval here to make heading stay as last one in array
+            //cleanInterval(intervalId);
+
+        } else {
+            i++;
+        }
+        }, 4000)
+
+
+        let heroHeadings = ['Andrew Hartley Realty', 'Luxury Living', 'Exquisite Client Care', 'Your Next Home'];
+        let z = 0;
+
+        let heroInterval = setInterval(function() {
+
+            mainTextEl.innerHTML = heroHeadings[z];
+
+            if (z == (heroHeadings.length - 1)) {
+                z = 0;
+            } else {
+                z++;
+            }
+
+        }, 3000);
+
+        const headingOptions = {
+            rootMargin: "0px",
+            threshold: 0
+        };
+
+        const heroHeadingObserver = new IntersectionObserver(function(entries, heroHeadingObserver) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('changed');
+                }
+            });
+        }, headingOptions);
+
+        heroHeadingObserver.observe(mainTextEl);
+
+        // Images and Text Panel --Section
+            // Images and Text Panel Section Variables
+            const imageTextPanelTitle = 'Explore Andrew Hartley Realty';
+            const imageTextPanelURLsAndText = [
+                {
+                    text: 'Home Search',
+                    url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephen-leonardi-XKIO6ZgCObo-unsplash.jpg?v=1662436369',
+                    href: '#'
+                },
+                {
+                    text: 'Exclusive Listings',
+                    url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-max-vakhtbovych-7031414.jpg?v=1662436894',
+                    href: '#'
+                },
+                {
+                    text: 'Our Blog',
+                    url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/roberto-nickson-so3wgJLwDxo-unsplash.jpg?v=1662436470',
+                    href: '#'
+                },
+                {
+                    text: 'Work with Andrew',
+                    url:'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-chris-goodwin-32870.jpg?v=1662441099',
+                    href: '#'
+                }
+            ];
+
+            // Output of the Main heading for the image panels
+            const imageTextPanelContainer = document.querySelector('.ImagesTextPanel-Section');
+            imageTextPanelContainer.setAttribute('id', 'about'); // --id
+            const imageTextPanelHeading = document.createElement('h1');
+            imageTextPanelHeading.classList.add('imageTextPanelHeading');
+            imageTextPanelContainer.appendChild(imageTextPanelHeading);
+            imageTextPanelHeading.appendChild(document.createTextNode(imageTextPanelTitle.toUpperCase()));
+            imageTextPanelContainer.prepend(imageTextPanelHeading);
+
+            // Image and Text Output
+            const ImagesTextPanelContainer = document.querySelector('.panelContainer');
+
+            // For the panels
+            imageTextPanelURLsAndText.forEach(panel => {
+                
+                // The link for the panel
+                const imageTextPanelLink = document.createElement('a');
+                imageTextPanelLink.classList.add('imageTextPanelLink');
+                const imageTextPanelLinkURL = panel.href;
+                imageTextPanelLink.href = imageTextPanelLinkURL;
+                ImagesTextPanelContainer.appendChild(imageTextPanelLink);
+                
+                // The div container 
+                const imageTextPanelDiv = document.createElement('div');
+                imageTextPanelDiv.classList.add('ImagesTextPanelDivs');
+                imageTextPanelLink.appendChild(imageTextPanelDiv);
+
+
+                // The text
+                const imageTextPanelEl = document.createElement('h2');
+                imageTextPanelEl.classList.add('imageTextPanelText');
+                const imageTextPanelText = panel.text;
+                imageTextPanelEl.appendChild(document.createTextNode(imageTextPanelText));
+                imageTextPanelDiv.appendChild(imageTextPanelEl);
+
+                // The background image
+                const imageTextPanelBackgroundImageURL = panel.url;
+                imageTextPanelDiv.style.background = "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('"+imageTextPanelBackgroundImageURL+"')";
+                imageTextPanelDiv.style.backgroundSize = 'cover';
+            });
+
+            // Pop-up animation on page load for image text panel section
+            const imageTextPanelDivObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+
+            const imageTextPanelDivAnimation = document.querySelectorAll('.imageTextPanelLink');
+            imageTextPanelDivAnimation.forEach((el) => imageTextPanelDivObserver.observe(el));
+
+        // Right Image Left Text --Section
+            // Variables for the Right Image Left Text section
+        const leftImageRightTextImageURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/main_shot.avif?v=1663118242';
+        const leftImageRightTextImageHeader = `Toronto's Top Real Estate Agent`;
+        const leftImageRightTextImageSubText = 'The $2 Billon Man';
+        const leftImageRightTextImageParagraphText = 'With over $2 Billion in sales, Andrew Hartley has developed a global reputation as the top Toronto real estate agent. His agency expertise in the Toronto market with his integrity, loyalty, and professionalism, Andrew is sought out by A-list celebrities, tech founders, and business leaders.';
+        const leftImageRightTextImageButtonText = 'Learn More';
+        const leftImageRightTextImageButtonURL = '#';
+
+        // Left Image Right Text output
+        const LeftImageRightTextSection = document.querySelector('.RightImageLeftText-Section');
+        const LeftImageRightTextSectionLeftSideDiv = document.createElement('div');
+        const LeftImageRightTextSectionRightSideDiv = document.createElement('div');
+        LeftImageRightTextSectionLeftSideDiv.classList.add('LeftImageRightTextSectionLeftSideDiv');
+        LeftImageRightTextSectionRightSideDiv.classList.add('LeftImageRightTextSectionRightSideDiv');
+
+        // Element creation
+        const leftImageRightTextImageHeaderEl = document.createElement('h1');
+        const leftImageRightTextImageSubTextEl = document.createElement('h3');
+        const leftImageRightTextImageParagraphTextEl = document.createElement('p');
+        const leftImageRightTextImageButtonURLs = document.createElement('a');
+        const leftImageRightTextImageButtonEl = document.createElement('button');
+        const leftImageRightTextImageImageEl = document.createElement('img');
+
+        // section header
+        leftImageRightTextImageHeaderEl.appendChild(document.createTextNode(leftImageRightTextImageHeader));
+        LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageHeaderEl);
+        LeftImageRightTextSection.appendChild(LeftImageRightTextSectionLeftSideDiv);
+
+        // section sub text
+        leftImageRightTextImageSubTextEl.appendChild(document.createTextNode(leftImageRightTextImageSubText));
+        LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageSubTextEl);
+        LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+
+        // section paragraph 
+        leftImageRightTextImageParagraphTextEl.appendChild(document.createTextNode(leftImageRightTextImageParagraphText));
+        LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageParagraphTextEl);
+        LeftImageRightTextSection.appendChild(LeftImageRightTextSectionRightSideDiv);
+
+        // section right side image
+        leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageBtn');
+        LeftImageRightTextSectionRightSideDiv.appendChild(leftImageRightTextImageImageEl);
+        leftImageRightTextImageImageEl.src = leftImageRightTextImageURL;
+        leftImageRightTextImageImageEl.classList.add('leftImageRightTextImageImageEl');
+
+        // section button CTA
+        leftImageRightTextImageButtonEl.classList.add('leftImageRightTextImageButton');
+        leftImageRightTextImageButtonURLs.classList.add('leftImageRightTextImageButtonURLs');
+        leftImageRightTextImageButtonURLs.href = leftImageRightTextImageButtonURL;
+        leftImageRightTextImageButtonURLs.appendChild(leftImageRightTextImageButtonEl);
+        leftImageRightTextImageButtonEl.appendChild(document.createTextNode(leftImageRightTextImageButtonText.toUpperCase()));
+        LeftImageRightTextSectionLeftSideDiv.appendChild(leftImageRightTextImageButtonURLs);
+
+        // Pop-up animation on page load for single image with text section
+        const singleImagewithTextDivOberver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        const singleImagewithTextDiv = document.querySelectorAll('.LeftImageRightTextSectionLeftSideDiv');
+        singleImagewithTextDiv.forEach((el) => singleImagewithTextDivOberver.observe(el));
+
+
+        // Only Text Panel Testimonial --Section
+        // variables
+        const onlyTextpanelTestimonialHeader = 'Latest Press and Media';
+        const onlyTextpanelTestimonialVariables = [
+            {
+                text: '"Andrew is Herbert Banker’s No. 1 agent, and his expertise has propelled him to the top of luxury real estate agents in the Toronto area."',
+                subText: '- Evolve Realty Magazine'
+            },
+            {
+                text: '"Andrew Hartley was recently inducted into the Toronto Real Estate Society Hall of Fame in 2022, being the youngest agent in history."',
+                subText: '- GTA Reporter'
+            },
+            {
+                text: '"In his more-than-two-decade career, Hartley has racked up more than $2 billion in sales, consistently ranking as one of the top agents in the country."',
+                subText: '- Rich Realty News'
+            }
+        ];
+
+        // Only Text Panel Testimonial output for heading
+        const onlyTextpanelTestimonialContainer = document.querySelector('.OnlyTextPanelTestimonial-Section');
+        const onlyTextpanelTestimonialHeaderEl = document.createElement('h1');
+        onlyTextpanelTestimonialHeaderEl.classList.add('onlyTextpanelTestimonialHeaderEl');
+        onlyTextpanelTestimonialHeaderEl.appendChild(document.createTextNode(onlyTextpanelTestimonialHeader.toUpperCase()));
+        onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialHeaderEl);
+
+        // Only Text Panel Testimonial output for testimonial
+        const onlyTextpanelTestimonialDivEl = document.createElement('div');
+        onlyTextpanelTestimonialDivEl.classList.add('onlyTextpanelTestimonialDivEl');
+        onlyTextpanelTestimonialContainer.appendChild(onlyTextpanelTestimonialDivEl);
+
+        onlyTextpanelTestimonialVariables.forEach(testimonial => {
+            // variable creation
+            const onlyTextpanelTestimonialtextDiv = document.createElement('div');
+            onlyTextpanelTestimonialtextDiv.classList.add('onlyTextpanelTestimonialtextDiv');
+            const onlyTextpanelTestimonialtextEl = document.createElement('p');
+            onlyTextpanelTestimonialtextEl.classList.add('onlyTextpanelTestimonialtextEl');
+            const onlyTextpanelTestimonialSignatureEl = document.createElement('p');
+            onlyTextpanelTestimonialSignatureEl.classList.add('onlyTextpanelTestimonialSignatureEl');
+
+            const onlyTextpanelTestimonialtext = testimonial.text;
+            const onlyTextpanelTestimonialSignature = testimonial.subText;
+
+            // add the text into the elements
+            onlyTextpanelTestimonialtextEl.appendChild(document.createTextNode(onlyTextpanelTestimonialtext));
+            onlyTextpanelTestimonialSignatureEl.appendChild(document.createTextNode(onlyTextpanelTestimonialSignature));
+            onlyTextpanelTestimonialtextEl.style.fontStyle = 'italic';
+            onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialtextEl);
+            onlyTextpanelTestimonialtextDiv.appendChild(onlyTextpanelTestimonialSignatureEl);
+
+            // adding the text into the DOM
+            onlyTextpanelTestimonialDivEl.appendChild(onlyTextpanelTestimonialtextDiv);
+
+        });
+
+        // Testimonial animation going from left to right
+        const textPanelOnlyTestimonialObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const onlyTextPanelTestimonialDivElements = document.querySelectorAll('.onlyTextpanelTestimonialtextDiv');
+        onlyTextPanelTestimonialDivElements.forEach((el) => textPanelOnlyTestimonialObserver.observe(el));
+
+
+        // Images Zoom On Hover --Section
+            // Variables
+        const imageZoomOnHoverButtonTexts = 'Learn More';
+        const imageZoomOnHoverURLs = [
+            {
+                URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/andre-francois-mckenzie-08uIUe2a9XY-unsplash.jpg?v=1663304584',
+                Text: 'Oakville',
+                href: '#'
+            },
+            {
+                URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/cole-ankney-ZdJ6eIKN3G0-unsplash.jpg?v=1663304852',
+                Text: 'Burlington',
+                href: '#'
+            },
+            {
+                URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Downtown.avif?v=1663176288',
+                Text: 'Downtown',
+                href: '#'
+            },
+            {
+                URL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/Richmond_Hill.avif?v=1663176288',
+                Text: 'Hamilton',
+                href: '#'
+            }
+        ];
+
+        // Images Zoom On Hover Output for background
+        const imageOnHoverContainer = document.querySelector('.ImagesZoomOnHover-Section');
+        imageOnHoverContainer.setAttribute('id', 'ourproperties'); //--id
+        for (let j = 0; j < imageZoomOnHoverURLs.length; j++) {
+            const imageOnHoverDivs = document.createElement('div');
+            imageOnHoverDivs.classList.add('imageOnHoverDivs');
+            imageOnHoverContainer.appendChild(imageOnHoverDivs);
+        }
+        
+        const imageOnHoverDivs = document.querySelectorAll('.imageOnHoverDivs');
+        imageOnHoverDivs.forEach(div => {
+            // Add background image div
+            const imageOnHoverBackgroundDivs = document.createElement('div');
+            imageOnHoverBackgroundDivs.classList.add('imageOnHoverBackgroundDivs');
+            div.appendChild(imageOnHoverBackgroundDivs);
+
+            // Creating the text element
+            const imageOnHoverMainText = document.createElement('h3');
+            imageOnHoverMainText.classList.add('imageOnHoverMainText');
+            div.appendChild(imageOnHoverMainText);
+
+            // Creating the button element
+            const imageOnHoverButtonLinks = document.createElement('a');
+            const imageOnHoverButton = document.createElement('button');
+            imageOnHoverButtonLinks.classList.add('imageOnHoverButtonLinks');
+            imageOnHoverButton.classList.add('imageOnHoverButton');
+            div.appendChild(imageOnHoverButtonLinks);
+            imageOnHoverButtonLinks.appendChild(imageOnHoverButton);
+        });
+
+        for (let z = 0; z < imageZoomOnHoverURLs.length; z++) {
+            // adding the background URL 
+            const imageOnHoverBackgroundDiv = document.querySelectorAll('.imageOnHoverBackgroundDivs');
+            const imageZoomOnHoverURL = imageZoomOnHoverURLs[z].URL;
+            imageOnHoverBackgroundDiv[z].style.background = "url('"+imageZoomOnHoverURL+"')";
+            imageOnHoverBackgroundDiv[z].style.backgroundSize = 'cover';
+
+            // Adding the text to the text element
+            const imageZoomOnHoverText = imageZoomOnHoverURLs[z].Text;
+            const imageOnZoomHoverTextEl = document.querySelectorAll('.imageOnHoverMainText');
+            imageOnZoomHoverTextEl[z].appendChild(document.createTextNode(imageZoomOnHoverText));
+
+            // adding the link to the button
+            const imageOnHoverButtonLinks = document.querySelectorAll('.imageOnHoverButtonLinks');
+            imageOnHoverButtonLinks[z].href = imageZoomOnHoverURLs[z].href;
+
+            // Adding the text to the button element
+            const imageZoomOnHoverButtonText = imageZoomOnHoverButtonTexts;
+            const imageZoomOnHoverButtonEl = document.querySelectorAll('.imageOnHoverButton');
+            imageZoomOnHoverButtonEl[z].appendChild(document.createTextNode(imageZoomOnHoverButtonText));
+        };
+
+        // Contact CTA and Email Submission --Section
+        // variables on the left side
+        const contactCTAemailformBackgroundURL = 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/stephan-bechert-yFV39g6AZ5o-unsplash.jpg?v=1663451952';
+        const contactCTAemailformLeftSide = [
+            {
+                heading: 'Work with Us',
+                subTextOne: 'We offer the highest level of expertise, service, and integrity.',
+                subTextTwo: 'Andrew Hartley Realty is the leading real estate agent in the Toronto area, and has helped hundreds of buyers find luxury homes and mansions, resulting in almost $2 Billion of closed residential real estate transactions in the last 20 years.',
+                buttonText: 'Learn More',
+                buttonURL: '#'
+            },
+        ];
+        // variables on the right side 
+        const contactCTAemailformRightSide = [
+            {
+                heading: 'Newsletter',
+                paragraphText: 'For exclusive news and market updates, sign up for our newsletter below.',
+                formPlaceholder: 'Your email',
+                buttonText: 'Submit',
+                buttonURL: '#'
+            },
+        ];
+
+        // Contact CTA and Email Submission Output to the DOM
+        // creating the divs for the two sides
+        const ContactCTAEmailSubmissionContainer = document.querySelector('.ContactCTAEmailSubmission-Section');
+        ContactCTAEmailSubmissionContainer.setAttribute('id', 'contact'); // --id
+        const ContactCTAEmailSubmissionLeftDiv = document.createElement('div');
+        ContactCTAEmailSubmissionLeftDiv.classList.add('ContactCTAEmailSubmissionLeftDiv');
+        const ContactCTAEmailSubmissionRightDiv = document.createElement('div');
+        ContactCTAEmailSubmissionRightDiv.classList.add('ContactCTAEmailSubmissionRightDiv');
+        ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionLeftDiv);
+        ContactCTAEmailSubmissionContainer.appendChild(ContactCTAEmailSubmissionRightDiv);
+
+        // The background image on both sides
+        ContactCTAEmailSubmissionContainer.style.background = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('"+contactCTAemailformBackgroundURL+"')";
+        ContactCTAEmailSubmissionContainer.style.backgroundSize = 'cover';
+        ContactCTAEmailSubmissionContainer.style.backgroundPosition = 'center';
+
+        // Adding the text inside the left div
+        contactCTAemailformLeftSide.forEach(element => {
+            const ContactCTAEmailformLeftSideHeadingEl = document.createElement('h3');
+            const ContactCTAEmailformLeftSideSubOneEl = document.createElement('p');
+            const ContactCTAEmailformLeftSideSubTwoEl = document.createElement('p');
+            ContactCTAEmailformLeftSideHeadingEl.appendChild(document.createTextNode(element.heading));
+            ContactCTAEmailformLeftSideSubOneEl.appendChild(document.createTextNode(element.subTextOne));
+            ContactCTAEmailformLeftSideSubTwoEl.appendChild(document.createTextNode(element.subTextTwo));
+            ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideHeadingEl);
+            ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubOneEl);
+            ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideSubTwoEl);
+
+            // Call To Action button for the left side 
+            const ContactCTAEmailformLeftSideCTAbuttonURL = document.createElement('a');
+            ContactCTAEmailformLeftSideCTAbuttonURL.classList.add('ContactCTAEmailformLeftSideCTAbuttonURL');
+            ContactCTAEmailformLeftSideCTAbuttonURL.href = element.buttonURL;
+            const ContactCTAEmailformLeftSideCTAbutton = document.createElement('button');
+            ContactCTAEmailformLeftSideCTAbutton.classList.add('ContactCTAEmailformLeftSideCTAbutton');
+            ContactCTAEmailformLeftSideCTAbuttonURL.appendChild(ContactCTAEmailformLeftSideCTAbutton);
+            ContactCTAEmailformLeftSideCTAbutton.appendChild(document.createTextNode(element.buttonText));
+            ContactCTAEmailSubmissionLeftDiv.appendChild(ContactCTAEmailformLeftSideCTAbuttonURL);
+            });
+
+        // Right side text and form addition
+        contactCTAemailformRightSide.forEach(element => {
+            const contactCTAemailformRightSideHeading = document.createElement('h1');
+            const contactCTAemailformRightSideParagraph = document.createElement('p');
+            const contactCTAemailformRightSideSubmissionForm = document.createElement('form');
+            const contactCTAemailformRightSideSubmissionFormInput = document.createElement('input');
+            const contactCTAemailformRightSideSubmitBtnURL = document.createElement('a');
+            const contactCTAemailformRightSideSubmitBtn = document.createElement('button');
+
+            contactCTAemailformRightSideHeading.appendChild(document.createTextNode(element.heading));
+            ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideHeading);
+            contactCTAemailformRightSideParagraph.appendChild(document.createTextNode(element.paragraphText));
+            ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideParagraph);
+            contactCTAemailformRightSideSubmissionForm.appendChild(contactCTAemailformRightSideSubmissionFormInput);
+            contactCTAemailformRightSideSubmissionFormInput.placeholder = element.formPlaceholder;
+            ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmissionForm);
+            contactCTAemailformRightSideSubmitBtnURL.appendChild(contactCTAemailformRightSideSubmitBtn);
+            contactCTAemailformRightSideSubmitBtnURL.href = element.buttonURL;
+            contactCTAemailformRightSideSubmitBtn.appendChild(document.createTextNode(element.buttonText));
+            ContactCTAEmailSubmissionRightDiv.appendChild(contactCTAemailformRightSideSubmitBtnURL);
+        });
+
+        // Footer --Section
+        // footer variables for the text-only list
+        const footerMenuTextHeadingVar = 'Andrew Hartley Realty';
+        const footerMenuTextInfo = [
+            {   
+                // address
+                title: 'Address:',
+                info: '123 Main St. Toronto, ON M4C 4X6'
+            },
+            {
+                // phone number
+                title: 'Phone Number:',
+                info: '613-123-4567'
+            },
+            {
+                // email
+                title: 'Email:',
+                info: 'Andrew@andrewhartley.com'
+            }
+        ];
+        // Footer variables for link list
+        const footerMenuLinksHeading = 'Quick Links';
+        const footerMenuLinks = [
+            {
+                text: 'Home',
+                URL: '#'
+            },
+            {
+                text: 'About Us',
+                URL: '/#about'
+            },
+            {
+                text: 'Contact Us',
+                URL: '/#contact'
+            },
+            {
+                text: 'Policy',
+                URL: '#'
+            },
+        ];
+
+        // Source (only) variable for embedded Google Map
+        const footerMap = [
+            {
+                iframeSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.364388369042!2d-79.3020559953908!3d43.682187373323764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cc1a464af03f%3A0x1c36d03a1cdb30b9!2s123%20Main%20St%2C%20Toronto%2C%20ON%20M4E%202V9!5e0!3m2!1sen!2sca!4v1663909450399!5m2!1sen!2sca'
+            }
+        ];
+
+        // Output of elements onto the DOM
+        const footerContainer = document.querySelector('.footer');
+
+        // output of the footer quick links
+        const footerMenuTextLinkDiv = document.createElement('div');
+        footerMenuTextLinkDiv.classList.add('footerMenuTextLinkDiv');
+        const footerMenuHeaderEl = document.createElement('h3');
+        footerMenuHeaderEl.classList.add('footerMenuHeaderEl');
+        footerMenuHeaderEl.appendChild(document.createTextNode(footerMenuLinksHeading));
+        footerMenuTextLinkDiv.appendChild(footerMenuHeaderEl);
+        footerContainer.appendChild(footerMenuTextLinkDiv);
+        footerMenuLinks.forEach(link => {
+            const footerMenuLinkTextLLinkEl = document.createElement('a');
+            footerMenuLinkTextLLinkEl.classList.add('footerMenuLinkTextLLinkEl');
+            footerMenuLinkTextLLinkEl.href = link.URL;
+            const footerMenuLinkText = document.createElement('p');
+            footerMenuLinkText.classList.add('footerMenuLinkText');
+            footerMenuLinkTextLLinkEl.appendChild(footerMenuLinkText);
+            footerMenuLinkText.appendChild(document.createTextNode(link.text));
+            footerMenuTextLinkDiv.appendChild(footerMenuLinkTextLLinkEl);
+        });
+
+        // Footer Google Maps section output 
+        const footerMenuMapDiv = document.createElement('div');
+        footerMenuMapDiv.classList.add('footerMenuMapDiv');
+        const footerMenuMapIframe = document.createElement('iframe');
+        footerMenuMapIframe.classList.add('footerMenuMapIframe');
+        footerMenuMapIframe.src = footerMap[0].iframeSrc;
+        footerMenuMapIframe.allowfullscreen = '';
+        footerMenuMapIframe.referrerpolicy = 'no-referrer-when-downgrade';
+        footerMenuMapIframe.loading = 'lazy';
+        footerMenuMapIframe.style.border = '0';
+        footerMenuMapDiv.appendChild(footerMenuMapIframe);
+        footerContainer.appendChild(footerMenuMapDiv);
+
+        // Footer Text info section output
+        const footerMenuContactInfo = document.createElement('div');
+        footerMenuContactInfo.classList.add('footerMenuContactInfo');
+        footerContainer.appendChild(footerMenuContactInfo);
+
+        const footerMenuTextHeading = document.createElement('h3');
+        footerMenuTextHeading.classList.add('footerMenuTextHeading');
+        footerMenuTextHeading.appendChild(document.createTextNode(footerMenuTextHeadingVar));
+        footerMenuContactInfo.appendChild(footerMenuTextHeading);
+
+        footerMenuTextInfo.forEach(text => {
+            const footerMenuTextTitle = document.createElement('p');
+            footerMenuTextTitle.classList.add('footerMenuTextTitle');
+            footerMenuTextTitle.appendChild(document.createTextNode(text.title));
+            const footerMenuTextInformation = document.createElement('p');
+            footerMenuTextInformation.classList.add('footerMenuTextInformation');
+            footerMenuTextInformation.appendChild(document.createTextNode(text.info));
+            footerMenuContactInfo.appendChild(footerMenuTextTitle);
+            footerMenuContactInfo.appendChild(footerMenuTextInformation);
+        });
+
+        // Devanada signature
+        const footerBottomSection = document.createElement('div');
+        footerBottomSection.classList.add('footerBottomSection');
+        const devanadaSignature = 'Website designed and developed by Devanada.';
+        const devanadaSignatureEl = document.createElement('p');
+        devanadaSignatureEl.classList.add('devanadaSignatureEl');
+        devanadaSignatureEl.appendChild(document.createTextNode(devanadaSignature));
+        footerContainer.appendChild(devanadaSignatureEl);
+
+        // To push the social media icons to the bottom of the footer
+        document.addEventListener('DOMContentLoaded', function(e) {
+            document.addEventListener('scroll', function(e) {
+                let documentHeight = document.body.scrollHeight;
+                let currentScroll = window.scrollY + window.innerHeight;
+                // When the user is a certain px away from the bottom, fire the event.
+                // the modifier is the number of pixels 
+                let modifier = 200; 
+                if((currentScroll + modifier > documentHeight) && (window.innerWidth > 900)) {
+                    headerSocialLinks.style.paddingTop = '55vh';
+                } else {
+                    headerSocialLinks.style.paddingTop = '12%';
+                }
+            });
+        });
+
+
+        // Code for the headshot parallax scroll animation
+
+        const headShotOptions = {
+            rootMargin: "0px",
+            threshold: 0.5
+        }
+
+        const headShotObserver = new IntersectionObserver(function(entries, headShotObserver) {
+            entries.forEach(entry => {
+                
+                function headShotScrollAnimation() {
+                    const windowHeight = window.innerHeight;
+                    const photoRect = leftImageRightTextImageImageEl.getBoundingClientRect();
+                    const photoPosition = photoRect.y;
+                    const parallaxValue = (-1 * (photoPosition - windowHeight)) / 10;
+                    leftImageRightTextImageImageEl.style.transform = `translateY(${parallaxValue}px)`;
+                }
+                
+                if (entry.isIntersecting) {
+                    document.addEventListener('scroll', headShotScrollAnimation);
+                } else {
+                    document.removeEventListener('scroll', headShotScrollAnimation);
+                }
+            });
+        }, headShotOptions);
+
+        headShotObserver.observe(leftImageRightTextImageImageEl);
+    </script>
+    
+</body>
+</html>
