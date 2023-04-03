@@ -1,5 +1,2 @@
-# Andrew-Hartley-Realty
-Realtor Website for Andrew Hartley
-
-Built using mainly Javascript and SCSS.
-You can find the fildes making up the website in the src folder.
+Check out website using the link below:
+https://canadiancode.github.io/Andrew-Hartley-Realty/
